@@ -180,7 +180,9 @@ class VKey extends HTMLElement {
 
   connectedCallback() {
     const _this = this;
-
+    var lastKey;
+    var timer;
+    
     // vkey event handling
     // -------------------
     ['vball', 'n0', 'n1', 'n2', 'n3'].forEach(function(item) {
@@ -199,6 +201,13 @@ class VKey extends HTMLElement {
         function(e) {
           e.preventDefault(); e.stopPropagation();
           _this.set_vsel_innerText(e);
+          
+         if (e.which==lastKey) {
+			      if (!timer) timer=setTimeout(console.log("hello"), 200);
+			      return;
+		     }
+		     lastKey=e.which;
+          
         });
         */
       _this.shadowRoot.querySelector(_div).addEventListener('pointerenter',
