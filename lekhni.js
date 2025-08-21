@@ -136,8 +136,8 @@ class VKey extends HTMLElement {
     .text()
   );*/
    // update vball
-   // let _vball = e.target.parentNode.parentNode.children[1];
-   // _vball.innerText = _text;
+   let _vball = e.target.parentNode.parentNode.children[1];
+   _vball.innerText = _text;
    return _text;
  }
 
@@ -197,7 +197,7 @@ class VKey extends HTMLElement {
         });
       */
       // swipe listener
-      /*_this.shadowRoot.querySelector(_div).addEventListener('pointerdown',
+      _this.shadowRoot.querySelector(_div).addEventListener('pointerdown',
         function(e) {
           e.preventDefault(); e.stopPropagation();
           _this.set_vsel_innerText(e);
@@ -209,7 +209,7 @@ class VKey extends HTMLElement {
 		     lastKey=e.which;
           
         });
-        */
+      
       _this.shadowRoot.querySelector(_div).addEventListener('pointerenter',
         function(e) {
           e.preventDefault(); e.stopPropagation();
