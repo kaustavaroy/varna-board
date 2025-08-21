@@ -196,7 +196,8 @@ class VKey extends HTMLElement {
           document.all.vsel.innerText = e.target.innerText;
         });
       */
-      // swipe listener
+      // swipe listener - causing keyboard display corruption. comment out.
+		/*
       _this.shadowRoot.querySelector(_div).addEventListener('pointerdown',
         function(e) {
           e.preventDefault(); e.stopPropagation();
@@ -209,7 +210,7 @@ class VKey extends HTMLElement {
 		     lastKey=e.which;
           
         });
-      
+      */
       _this.shadowRoot.querySelector(_div).addEventListener('pointerenter',
         function(e) {
           e.preventDefault(); e.stopPropagation();
