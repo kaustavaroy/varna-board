@@ -136,8 +136,8 @@ class VKey extends HTMLElement {
     .text()
   );*/
    // update vball
-   let _vball = e.target.parentNode.parentNode.children[1];
-   _vball.innerText = _text;
+   //let _vball = e.target.parentNode.parentNode.children[1];
+   //_vball.innerText = _text;
    return _text;
  }
 
