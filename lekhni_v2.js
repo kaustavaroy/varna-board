@@ -221,19 +221,21 @@ class VKey extends HTMLElement {
           e.preventDefault(); e.stopPropagation();
 		  document.all.vsel.innerText = "";
       });
-	  _this.shadowRoot.querySelector(_div).addEventListener('pointercancel',
-        function(e) {
-          e.preventDefault(); e.stopPropagation();
-		  // pointerend corresponds to touch remove
-		  //_this.put2_textarea(_this.set_vsel_innerText(e));	
-      });
-      _this.shadowRoot.querySelector(_div).addEventListener('pointerup',
+	  
+	  _this.shadowRoot.querySelector(_div).addEventListener('pointerup',
         function(e) {
           e.preventDefault(); e.stopPropagation();
           // pointerup corresponds to click
 		  _this.put2_textarea(_this.set_vsel_innerText(e));
         });
-
+	  /*		
+      _this.shadowRoot.querySelector(_div).addEventListener('pointercancel',
+        function(e) {
+          e.preventDefault(); e.stopPropagation();
+		  // pointerend corresponds to touch remove
+		  //_this.put2_textarea(_this.set_vsel_innerText(e));	
+      });
+	  */	
       _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
         function(e) {
           e.preventDefault(); e.stopPropagation();
@@ -242,7 +244,7 @@ class VKey extends HTMLElement {
           console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText);
           document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
       });
-
+		
 
     })  // end forEach
 
