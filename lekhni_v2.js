@@ -219,14 +219,20 @@ class VKey extends HTMLElement {
       _this.shadowRoot.querySelector(_div).addEventListener('pointerout',
         function(e) {
           e.preventDefault(); e.stopPropagation();
-		  // pointerup corresponds to click
-		  _this.put2_textarea(_this.set_vsel_innerText(e));
-          document.all.vsel.innerText = "";
+		  document.all.vsel.innerText = "";
+      });
+	  _this.shadowRoot.querySelector(_div).addEventListener('pointerend',
+        function(e) {
+          e.preventDefault(); e.stopPropagation();
+		  // pointerend corresponds to touch remove
+		  _this.put2_textarea(_this.set_vsel_innerText(e));	
+		  document.all.vsel.innerText = "";
       });
       _this.shadowRoot.querySelector(_div).addEventListener('pointerup',
         function(e) {
           e.preventDefault(); e.stopPropagation();
-          _this.put2_textarea(_this.set_vsel_innerText(e));
+          // pointerup corresponds to click
+		  //_this.put2_textarea(_this.set_vsel_innerText(e));
         });
 
       _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
