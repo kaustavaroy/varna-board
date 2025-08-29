@@ -46,8 +46,8 @@ $vkey.innerHTML = `
   }
 
   .vkey {
-    height: 48px;
-    width: 48px;
+    height: 36px;
+    width: 36px;
     border: black 0px solid;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     background-color: rgba(250,0,100,0.8);
