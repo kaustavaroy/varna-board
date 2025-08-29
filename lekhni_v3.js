@@ -84,8 +84,8 @@ $vkey.innerHTML = `
     background-color: rgba(0,0,0,0.2);
     border-radius: 50%;
     position: relative;
-    left: 6px;
-    top: -30px;
+    left: 18px;
+    top: -42px;
     text-align: center;
     line-height: 24px; /* to vertically center text; set to height*/
   }
