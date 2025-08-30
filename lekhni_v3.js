@@ -46,8 +46,8 @@ $vkey.innerHTML = `
   }
 
   .vkey {
-    height: 36px;
-    width: 36px;
+    height: 48px;
+    width: 48px;
     border: black 0px solid;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     background-color: rgba(250,0,100,0.8);
@@ -67,8 +67,8 @@ $vkey.innerHTML = `
   }
 
   .n0, .n1, .n2, .n3 {
-    width:  6px;
-    height: 6px;
+    width:  12px;
+    height: 12px;
     background-colork: red;
     padding: 0px;
   }
@@ -79,12 +79,12 @@ $vkey.innerHTML = `
   .n3 { transform: translate( -60%,    90%);}
 
   .vball {
-    width: 36px;
-    height: 36px;
+    width: 24px;
+    height: 24px;
     background-color: rgba(0,0,0,0.2);
     border-radius: 50%;
     position: relative;
-    left: 6px;
+    left: 12px;
     top: -36px;
     text-align: center;
     line-height: 24px; /* to vertically center text; set to height*/
