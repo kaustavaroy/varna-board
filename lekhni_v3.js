@@ -67,8 +67,8 @@ $vkey.innerHTML = `
   }
 
   .n0, .n1, .n2, .n3 {
-    width:  12px;
-    height: 12px;
+    width:  6px;
+    height: 6px;
     background-colork: red;
     padding: 0px;
   }
@@ -79,13 +79,13 @@ $vkey.innerHTML = `
   .n3 { transform: translate( -60%,    90%);}
 
   .vball {
-    width: 24px;
-    height: 24px;
+    width: 36px;
+    height: 36px;
     background-color: rgba(0,0,0,0.2);
     border-radius: 50%;
     position: relative;
-    left: 18px;
-    top: -42px;
+    left: 12px;
+    top: -36px;
     text-align: center;
     line-height: 24px; /* to vertically center text; set to height*/
   }
