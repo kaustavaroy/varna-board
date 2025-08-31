@@ -63,7 +63,7 @@ $vkey.innerHTML = `
     font-size: 12px;
     font-weight: 900;
     font-family: 'Noto Sans', sans-serif;
-    color: rgba(0,0,0,0);
+    color: rgba(120,120,0,0);
   }
 
   .n0, .n1, .n2, .n3 {
