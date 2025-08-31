@@ -85,14 +85,14 @@ $vkey.innerHTML = `
     border-radius: 50%;
     position: relative;
     left: 12px;
-    top: -45px;
+    top: -42px;
     text-align: center;
     line-height: 24px; /* to vertically center text; set to height*/
   }
   .vball {
     color: white;
-    font-size: 18px;
-    font-weight: 900;
+    font-size: 12px;
+    font-weight: 600;
   }
 </style>
 `;
