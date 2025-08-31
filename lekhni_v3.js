@@ -72,12 +72,12 @@ $vkey.innerHTML = `
     height: 12px;
     background-colork: red;
     padding: 0px;
-    font-size: 12px;
-    font-weight: 600;
   }
   
   .n2 {
     color: white;
+    font-size: 12px;
+    font-weight: 600;
   }
   
   .n0 { transform: translate(  60%,  -120%);}
