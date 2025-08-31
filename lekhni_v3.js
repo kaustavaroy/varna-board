@@ -66,7 +66,7 @@ $vkey.innerHTML = `
     color: rgba(0,0,0,0);
   }
 
-  .n0, .n1, .n2, .n3 {
+  .n0, .n1, .nx, .n2, .n3 {
     width:  12px;
     height: 12px;
     background-colork: red;
@@ -79,6 +79,7 @@ $vkey.innerHTML = `
 
   .n0 { transform: translate(  60%,  -120%);}
   .n1 { transform: translate( 150%,  -120%);}
+  .n2 { transform: translate(-120%,    90%);}
   .n2 { transform: translate(-150%,    90%);}
   .n3 { transform: translate( -60%,    90%);}
 
@@ -116,6 +117,7 @@ class VKey extends HTMLElement {
     let _c = this.getAttribute('c').split(" ");
     this.shadowRoot.querySelector(".caption.n0").innerText = _a[0];
     this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
+    this.shadowRoot.querySelector(".caption.nx").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
     this.shadowRoot.querySelector(".caption.vball").innerText = _a[0];
@@ -124,7 +126,8 @@ class VKey extends HTMLElement {
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n1").style.fontWeight = _s;
-    this.shadowRoot.querySelector(".caption.n2").style.fontWeight = _s;
+    this.shadowRoot.querySelector(".caption.nx").style.fontWeight = _s;
+	this.shadowRoot.querySelector(".caption.n2").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n3").style.fontWeight = _s;
   }
 
@@ -192,7 +195,7 @@ class VKey extends HTMLElement {
     
     // vkey event handling
     // -------------------
-    ['vball', 'n0', 'n1', 'n2', 'n3'].forEach(function(item) {
+    ['vball', 'n0', 'n1', 'nx', 'n2', 'n3'].forEach(function(item) {
       let _div = ".caption." + item;
       /*
       // click listener
