@@ -78,7 +78,7 @@ $vkey.innerHTML = `
   .n2 { transform: translate(-150%,    90%);}
   .n3 { transform: translate( -60%,    90%);}
 
-  .vball {
+  .vball .vball2 {
     width: 24px;
     height: 24px;
     background-color: rgba(0,0,0,0.2);
@@ -89,11 +89,13 @@ $vkey.innerHTML = `
     text-align: center;
     line-height: 24px; /* to vertically center text; set to height*/
   }
-  .vball {
+  .vball .vball2 {
     color: white;
     font-size: 12px;
     font-weight: 600;
   }
+  .vball2 { transform: translate(0px, 3px;}  
+  
 </style>
 `;
 
