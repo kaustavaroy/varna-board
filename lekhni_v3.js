@@ -35,6 +35,7 @@ $vkey.innerHTML = `
   <div class="vkey">
     <div class="caption n0"></div>
     <div class="caption n1"></div>
+	<div class="caption nx"></div>
     <div class="caption n2"></div>
     <div class="caption n3"></div>
   </div>
