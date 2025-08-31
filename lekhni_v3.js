@@ -84,18 +84,23 @@ $vkey.innerHTML = `
     background-color: rgba(0,0,0,0.2);
     border-radius: 50%;
     position: relative;
-    left: 12px;
-    top: -42px;
     text-align: center;
     line-height: 24px; /* to vertically center text; set to height*/
+  }
+  .vball {
+    left: 12px;
+    top: -42px;
+  }
+  .vball2 {
+    left: 12px;
+    top: -24px;
   }
   .vball .vball2 {
     color: white;
     font-size: 12px;
     font-weight: 600;
   }
-  .vball2 { transform: translate(0px, 3px;}  
-  
+    
 </style>
 `;
 
@@ -114,6 +119,7 @@ class VKey extends HTMLElement {
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
     this.shadowRoot.querySelector(".caption.vball").innerText = _a[0];
+	this.shadowRoot.querySelector(".caption.vball2").innerText = _a[1];  
     this.shadowRoot.querySelector(".vkey").style.background = _c[0];
     this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
@@ -187,7 +193,7 @@ class VKey extends HTMLElement {
     
     // vkey event handling
     // -------------------
-    ['vball', 'n0', 'n1', 'n2', 'n3'].forEach(function(item) {
+    ['vball2', 'vball', 'n0', 'n1', 'n2', 'n3'].forEach(function(item) {
       let _div = ".caption." + item;
       /*
       // click listener
