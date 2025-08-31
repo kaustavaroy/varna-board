@@ -77,10 +77,11 @@ $vkey.innerHTML = `
     font-weight: 600;
 
   }
+  
 
   .n0 { transform: translate(  60%,  -120%);}
   .n1 { transform: translate( 150%,  -120%);}
-  .nx { transform: translate(-120%,    90%);}
+  .nx { transform: translate(-120%,   120%);}
   .n2 { transform: translate(-150%,    90%);}
   .n3 { transform: translate( -60%,    90%);}
 
