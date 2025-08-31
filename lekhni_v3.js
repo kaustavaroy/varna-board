@@ -78,7 +78,7 @@ $vkey.innerHTML = `
   .n2 { transform: translate(-150%,    90%);}
   .n3 { transform: translate( -60%,    90%);}
 
-  .vball .vball2 {
+  .vball {
     width: 24px;
     height: 24px;
     background-color: rgba(0,0,0,0.2);
@@ -91,11 +91,7 @@ $vkey.innerHTML = `
     left: 12px;
     top: -42px;
   }
-  .vball2 {
-    left: 12px;
-    top: -24px;
-  }
-  .vball .vball2 {
+  .vball {
     color: white;
     font-size: 12px;
     font-weight: 600;
@@ -119,8 +115,7 @@ class VKey extends HTMLElement {
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
     this.shadowRoot.querySelector(".caption.vball").innerText = _a[0];
-	this.shadowRoot.querySelector(".caption.vball2").innerText = _a[1];  
-    this.shadowRoot.querySelector(".vkey").style.background = _c[0];
+	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
     this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
@@ -193,7 +188,7 @@ class VKey extends HTMLElement {
     
     // vkey event handling
     // -------------------
-    ['vball2', 'vball', 'n0', 'n1', 'n2', 'n3'].forEach(function(item) {
+    ['vball', 'n0', 'n1', 'n2', 'n3'].forEach(function(item) {
       let _div = ".caption." + item;
       /*
       // click listener
