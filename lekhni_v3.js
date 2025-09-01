@@ -101,7 +101,7 @@ $vkey.innerHTML = `
   }
   .vball {
     color: white;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
   }
     
@@ -239,7 +239,9 @@ class VKey extends HTMLElement {
         function(e) {
           e.preventDefault(); e.stopPropagation();
           // pointerup corresponds to click
-		  _this.put2_textarea(_this.set_vsel_innerText(e));
+		  //_this.put2_textarea(_this.set_vsel_innerText(e));
+			_this.put2_textarea(document.all.vsel.innerText);
+
         });
 	  /*		
       _this.shadowRoot.querySelector(_div).addEventListener('pointercancel',
