@@ -61,7 +61,7 @@ $vkey.innerHTML = `
     cursor: pointer;
   }
   .caption {
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 900;
     font-family: 'Noto Sans', sans-serif;
     color: rgba(0,0,0,0);
@@ -83,7 +83,7 @@ $vkey.innerHTML = `
   .n0 { transform: translate(  60%,  -120%);}
   .n1 { transform: translate( 150%,  -120%);}
   .nx { transform: translate(-150%,    90%);}
-  .n2 { transform: translate(-105%,    90%);}
+  .n2 { transform: translate(-115%,    80%);}
   .n3 { transform: translate( -60%,    90%);}
 
   .vball {
@@ -101,7 +101,7 @@ $vkey.innerHTML = `
   }
   .vball {
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 600;
   }
     
