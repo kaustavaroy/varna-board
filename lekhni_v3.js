@@ -61,7 +61,7 @@ $vkey.innerHTML = `
     cursor: pointer;
   }
   .caption {
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 900;
     font-family: 'Noto Sans', sans-serif;
     color: rgba(0,0,0,0);
@@ -76,8 +76,8 @@ $vkey.innerHTML = `
   
   .n2 {
     color: white;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 9px;
+    font-weight: 300;
   }
   
   .n0 { transform: translate(  60%,  -120%);}
