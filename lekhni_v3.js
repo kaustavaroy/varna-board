@@ -68,8 +68,8 @@ $vkey.innerHTML = `
   }
 
   .n0, .n1, .nx, .n2, .n3 {
-    width:  24px;
-    height: 24px;
+    width:  15px;
+    height: 12px;
     background-colork: red;
     padding: 0px;
   }
@@ -107,6 +107,9 @@ $vkey.innerHTML = `
     
 </style>
 `;
+
+const swara = "अआइईउऊॠऌएऐऍऑओऔ";
+const arr_swara = [...swara];
 
 class VKey extends HTMLElement {
   constructor() {
@@ -156,6 +159,7 @@ class VKey extends HTMLElement {
 
  put2_textarea(v) {
    let _V = document.all.keyinput.value;
+   let _V_lastchar = _V.slice(-1,);	  
    let _start_pos = document.all.keyinput.selectionStart;
    let _end_pos = document.all.keyinput.selectionEnd;
    if ( !!_end_pos && _start_pos == _end_pos ) {
@@ -166,6 +170,14 @@ class VKey extends HTMLElement {
    if (_vput.length >= 5) {
      _vput = "";
    }
+   // remove previous halanth if swara (vowel)
+   if (arr_swara.includes(v)) {
+	   if (_V_lastchar == "्") {
+		   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
+	       _vput=_vput.slice(0,-1);
+	   }
+   }
+	 
    switch (v) {
      case "␣": _V += " "; _vput = ""; break;
      // after delete, cursor automaticaaly moves to end
@@ -174,15 +186,20 @@ class VKey extends HTMLElement {
      _vput=_vput.slice(0,-1);
      break;
     // case "+": _V += "&#93e;"; break;
-     case "✹": _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break;
-     case "इ": _V += String.fromCharCode(2367); _vput+= _V.slice(-1,); break;
+	// const swara = "अआइईउऊॠऌएऐऍऑओऔ";	   
+     case "आ": _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break; 
+	 case "इ": _V += String.fromCharCode(parseInt("93f", 16)); _vput+= _V.slice(-1,); break;
+	 case "ई": _V += String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
      case "उ": _V += String.fromCharCode(parseInt("941", 16));  _vput+= _V.slice(-1,); break;
+	 case "ऊ": _V += String.fromCharCode(parseInt("942", 16));  _vput+= _V.slice(-1,); break;
+     case "ऋ": _V += String.fromCharCode(parseInt("943", 16));  _vput+= _V.slice(-1,); break;
+     case "ऌ": _V += String.fromCharCode(parseInt("962", 16));  _vput+= _V.slice(-1,); break;  
      case "ए": _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
+	 case "ऐ": _V += String.fromCharCode(parseInt("948", 16));  _vput+= _V.slice(-1,); break;
+	 case "ऍ": _V += String.fromCharCode(parseInt("946", 16));  _vput+= _V.slice(-1,); break;
+     case "ऑ": _V += String.fromCharCode(parseInt("949", 16));  _vput+= _V.slice(-1,); break;
      case "ओ": _V += String.fromCharCode(parseInt("94b", 16));  _vput+= _V.slice(-1,); break;
      case "औ": _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
-     case "ऋ": _V += String.fromCharCode(parseInt("943", 16));  _vput+= _V.slice(-1,); break;
-     case "ऌ": _V += String.fromCharCode(parseInt("962", 16));  _vput+= _V.slice(-1,); break;
-     case "ए": _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
      case "+": _V += String.fromCharCode(2366); break;
      default : _V += v; _vput+=v; break;
    }
