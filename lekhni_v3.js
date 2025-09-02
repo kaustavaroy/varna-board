@@ -111,6 +111,9 @@ $vkey.innerHTML = `
 const swara = "अआइईउऊॠऌएऐऍऑओऔ";
 const arr_swara = [...swara];
 
+const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
+const arr_vyanjana = [...vyanjana];
+
 class VKey extends HTMLElement {
   constructor() {
     super();
@@ -170,39 +173,49 @@ class VKey extends HTMLElement {
    if (_vput.length >= 5) {
      _vput = "";
    }
-   // remove previous halanth if swara (vowel)
+   // remove previous halanth if swara (vowel) being added
    if (arr_swara.includes(v)) {
 	   if (_V_lastchar == "्") {
 		   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
 	       _vput=_vput.slice(0,-1);
+		   let _V_lastchar = _V.slice(-1,);	  
 	   }
    }
-	 
-   switch (v) {
-     case "␣": _V += " "; _vput = ""; break;
-     // after delete, cursor automaticaaly moves to end
-     case "⌫":
-     _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
-     _vput=_vput.slice(0,-1);
-     break;
-    // case "+": _V += "&#93e;"; break;
-	// const swara = "अआइईउऊॠऌएऐऍऑओऔ";	   
-     case "आ": _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break; 
-	 case "इ": _V += String.fromCharCode(parseInt("93f", 16)); _vput+= _V.slice(-1,); break;
-	 case "ई": _V += String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
-     case "उ": _V += String.fromCharCode(parseInt("941", 16));  _vput+= _V.slice(-1,); break;
-	 case "ऊ": _V += String.fromCharCode(parseInt("942", 16));  _vput+= _V.slice(-1,); break;
-     case "ऋ": _V += String.fromCharCode(parseInt("943", 16));  _vput+= _V.slice(-1,); break;
-     case "ऌ": _V += String.fromCharCode(parseInt("962", 16));  _vput+= _V.slice(-1,); break;  
-     case "ए": _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
-	 case "ऐ": _V += String.fromCharCode(parseInt("948", 16));  _vput+= _V.slice(-1,); break;
-	 case "ऍ": _V += String.fromCharCode(parseInt("946", 16));  _vput+= _V.slice(-1,); break;
-     case "ऑ": _V += String.fromCharCode(parseInt("949", 16));  _vput+= _V.slice(-1,); break;
-     case "ओ": _V += String.fromCharCode(parseInt("94b", 16));  _vput+= _V.slice(-1,); break;
-     case "औ": _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
-     case "+": _V += String.fromCharCode(2366); break;
-     default : _V += v; _vput+=v; break;
-   }
+
+   // use matras if last char is vyanjana and new char is swara
+   if ( arr_swara.includes(v) && arr_vyanjana.includes(_V_lastchar) ) {
+		   switch (v) {
+		     // const swara = "अआइईउऊॠऌएऐऍऑओऔ";
+			 // const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
+             // const arr_vyanjana = [...vyanjana];
+		     // https://www.unicode.org/charts/nameslist/n_0900.html
+		     case "आ": _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break; 
+			 case "इ": _V += String.fromCharCode(parseInt("93f", 16)); _vput+= _V.slice(-1,); break;
+			 case "ई": _V += String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
+		     case "उ": _V += String.fromCharCode(parseInt("941", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऊ": _V += String.fromCharCode(parseInt("942", 16));  _vput+= _V.slice(-1,); break;
+		     case "ऋ": _V += String.fromCharCode(parseInt("943", 16));  _vput+= _V.slice(-1,); break;
+		     case "ऌ": _V += String.fromCharCode(parseInt("962", 16));  _vput+= _V.slice(-1,); break;  
+		     case "ए": _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऐ": _V += String.fromCharCode(parseInt("948", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऍ": _V += String.fromCharCode(parseInt("946", 16));  _vput+= _V.slice(-1,); break;
+		     case "ऑ": _V += String.fromCharCode(parseInt("949", 16));  _vput+= _V.slice(-1,); break;
+		     case "ओ": _V += String.fromCharCode(parseInt("94b", 16));  _vput+= _V.slice(-1,); break;
+     	     case "औ": _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
+	   }
+   } else {	 
+		   switch (v) {
+		     case "␣": _V += " "; _vput = ""; break;
+		     // after delete, cursor automaticaaly moves to end
+		     case "⌫":
+		     _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
+		     _vput=_vput.slice(0,-1);
+		     break;
+		     // case "+": _V += "&#93e;"; break;
+		     case "+": _V += String.fromCharCode(2366); break;
+		     default : _V += v; _vput+=v; break;
+		   }
+   }	   
    document.all.vput.innerText = _vput;
    document.all.keyinput.value = _V;
    document.all.keyinput.focus();
