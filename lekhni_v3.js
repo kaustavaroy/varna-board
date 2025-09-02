@@ -68,22 +68,22 @@ $vkey.innerHTML = `
   }
 
   .n0, .n1, .nx, .n2, .n3 {
-    width:  12px;
-    height: 12px;
+    width:  24px;
+    height: 24px;
     background-colork: red;
     padding: 0px;
   }
   
   .n2 {
     color: white;
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 300;
   }
   
   .n0 { transform: translate(  60%,  -120%);}
   .n1 { transform: translate( 150%,  -120%);}
   .nx { transform: translate(-150%,    90%);}
-  .n2 { transform: translate(-115%,    80%);}
+  .n2 { transform: translate(-115%,    75%);}
   .n3 { transform: translate( -60%,    90%);}
 
   .vball {
