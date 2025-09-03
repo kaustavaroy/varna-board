@@ -108,11 +108,23 @@ $vkey.innerHTML = `
 </style>
 `;
 
-const swara = "अआइईउऊॠऌएऐऍऑओऔ";
+//  ् - halantha allows creation of conjunct vyanjana (consonants)
+const halantha = String.fromCharCode(parseInt("94d", 16));
+// ़ -  nukta changes vyanaja_alpaprana to vyanjana_mahaprana
+const nukta = String.fromCharCode(parseInt("93c", 16));
+
+// swara (vowels)
+const swara = "अआइईउऊॠऌएऐऍऑओऔ" + nukta;
 const arr_swara = [...swara];
 
 const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
 const arr_vyanjana = [...vyanjana];
+
+const vyanajana_alpaprana = "कगचजटडतदपब";
+const arr_vyanjana_alpaprana = [... vyanajana_alpaprana];
+
+const vyanajana_mahaprana = "खघछझठढथधफभ";
+const arr_vyanjana_mahaprana = [... vyanajana_mahaprana];
 
 class VKey extends HTMLElement {
   constructor() {
