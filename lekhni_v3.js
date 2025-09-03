@@ -108,13 +108,13 @@ $vkey.innerHTML = `
 </style>
 `;
 
-//  ् - halantha allows creation of conjunct vyanjana (consonants)
-const halantha = String.fromCharCode(parseInt("94d", 16));
+//  ् - halanth allows creation of conjunct vyanjana (consonants)
+const halanth = String.fromCharCode(parseInt("094d", 16));
 // ़ -  nukta changes vyanaja_alpaprana to vyanjana_mahaprana
-const nukta = String.fromCharCode(parseInt("93c", 16));
+const nukta = String.fromCharCode(parseInt("093c", 16));
 
 // swara (vowels)
-const swara = "अआइईउऊॠऌएऐऍऑओऔ" + nukta;
+const swara = "अआइईउऊॠऌएऐऍऑओऔ";
 const arr_swara = [...swara];
 
 const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
@@ -174,17 +174,20 @@ class VKey extends HTMLElement {
 
  put2_textarea(v) {
    let _V = document.all.keyinput.value;
-   let _V_lastchar = _V.slice(-1,);	  
+   let _V_lastchar = _V.slice(-1,);
+   let _V_penulchar = _V.slice(-2,-1);	 
    let _start_pos = document.all.keyinput.selectionStart;
    let _end_pos = document.all.keyinput.selectionEnd;
    if ( !!_end_pos && _start_pos == _end_pos ) {
      _start_pos--;
    }
+	 
    //let _vsel = document.all.vsel.innerText;
    let _vput = document.all.vput.innerText;
    if (_vput.length >= 5) {
      _vput = "";
    }
+	 
    // remove previous halanth if swara (vowel) being added
    if (arr_swara.includes(v)) {
 	   if (_V_lastchar == "्") {
@@ -194,6 +197,17 @@ class VKey extends HTMLElement {
 	   }
    }
 
+   // if nukta, change previous alpaprana consonant to mahaprana
+  if ( v == nukta ) {
+	  if ( arr_vyanjana_alpaprana.includes(_V_lastchar) ) {
+		  _V_lastchar = arr_vyanjana_mahaprana[arr_vyanjana_alpaprana.indexOf(_V_lastchar)];
+	  }
+	  if ( _V_lastchar == halanth && arr_vyanjana_alpaprana.includes(_V_penulchar ) {
+		  _V_penulchar = arr_vyanajana_mahaprana[arr_vyanjana_alpaprana.indexOf(_V_penulchar)];
+	  }
+	  _V = _V.slice(,-2) + _V_penulchar + _V_lastchar;   _vput+= _V.slice(-1,); 
+  }
+	 
    // use matras if last char is vyanjana and new char is swara
    if ( arr_swara.includes(v) && arr_vyanjana.includes(_V_lastchar) ) {
 		   switch (v) {
