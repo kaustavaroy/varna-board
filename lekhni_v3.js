@@ -197,7 +197,8 @@ class VKey extends HTMLElement {
 	   }
    }
 
-   // if nukta, change previous alpaprana consonant to mahaprana
+	 
+ /*  // if nukta, change previous alpaprana consonant to mahaprana
   if ( v == nukta ) {
 	  if ( arr_vyanjana_alpaprana.includes(_V_lastchar) ) {
 		  _V_lastchar = arr_vyanjana_mahaprana[arr_vyanjana_alpaprana.indexOf(_V_lastchar)];
@@ -207,6 +208,7 @@ class VKey extends HTMLElement {
 	  }
 	  _V = _V.slice(,-2) + _V_penulchar + _V_lastchar;   _vput+= _V.slice(-1,); 
   }
+	*/
 	 
    // use matras if last char is vyanjana and new char is swara
    if ( arr_swara.includes(v) && arr_vyanjana.includes(_V_lastchar) ) {
