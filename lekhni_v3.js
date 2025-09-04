@@ -192,7 +192,7 @@ class VKey extends HTMLElement {
    if (arr_swara.includes(v)) {
 	   if (_V_lastchar == "्") {
 		   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
-	       _vput=_vput.slice(0,-1);
+	       _vput = _vput.slice(0,-1);
 		   _V_lastchar = _V.slice(-1,);	  
 	   }
    }
@@ -202,8 +202,9 @@ class VKey extends HTMLElement {
   if ( v == nukta ) {
 	  if ( arr_vyanjana_alpaprana.includes(_V_lastchar) ) {
 		  let alpa_index = arr_vyanjana_alpaprana.indexOf(_V_lastchar);
+		  let maha_v = arr_vyanjana_mahaprana[alpa_index];
 		  console.log(alpa_index);
-		  console.log(arr_vyanjana_mahaprana[alpa_index]);
+		  console.log(maha_v);
 	  }
 	  //if ( _V_lastchar == halanth && arr_vyanjana_alpaprana.includes(_V_penulchar ) {
 	//	  _V_penulchar = arr_vyanajana_mahaprana[arr_vyanjana_alpaprana.indexOf(_V_penulchar)];
@@ -233,16 +234,20 @@ class VKey extends HTMLElement {
      	     case "औ": _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
 	   }
    } else {	 
-		   switch (v) {
-		     case "␣": _V += " "; _vput = ""; break;
-		     // after delete, cursor automaticaaly moves to end
-		     case "⌫":
-		     _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
-		     _vput=_vput.slice(0,-1);
-		     break;
-		     // case "+": _V += "&#93e;"; break;
-		     case "+": _V += String.fromCharCode(2366); break;
-		     default : _V += v; _vput+=v; break;
+		   switch (v) {	   
+		       case "␣": _V += " "; _vput = ""; break;
+		       // after delete, cursor automaticaaly moves to end
+		       case "⌫":
+		           _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
+		           _vput=_vput.slice(0,-1);
+		           break;
+			   case nukta:  
+				   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + maha_v;
+				   _vput=_vput.slice(0,-1);
+		           break;
+		       // case "+": _V += "&#93e;"; break;
+		       case "+": _V += String.fromCharCode(2366); break;
+		       default : _V += v; _vput+=v; break;
 		   }
    }	   
    document.all.vput.innerText = _vput;
