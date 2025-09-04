@@ -242,7 +242,7 @@ class VKey extends HTMLElement {
 		           _vput=_vput.slice(0,-1);
 		           break;
 			   case nukta:  
-				   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + maha_v;
+				   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
 				   _vput=_vput.slice(0,-1);
 		           break;
 		       // case "+": _V += "&#93e;"; break;
