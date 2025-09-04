@@ -197,12 +197,15 @@ class VKey extends HTMLElement {
 	   }
    }
 
-	 
+  // initialize	 
+  let alpa_index = 0;
+  let maha_v = arr_vyanjana_mahaprana[alpa_index];
+		  	 
   // if nukta, change previous alpaprana consonant to mahaprana
   if ( v == nukta ) {
 	  if ( arr_vyanjana_alpaprana.includes(_V_lastchar) ) {
-		  let alpa_index = arr_vyanjana_alpaprana.indexOf(_V_lastchar);
-		  let maha_v = arr_vyanjana_mahaprana[alpa_index];
+		  alpa_index = arr_vyanjana_alpaprana.indexOf(_V_lastchar);
+		  maha_v = arr_vyanjana_mahaprana[alpa_index];
 		  console.log(alpa_index);
 		  console.log(maha_v);
 	  }
