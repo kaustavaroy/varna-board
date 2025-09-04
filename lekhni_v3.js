@@ -193,20 +193,22 @@ class VKey extends HTMLElement {
 	   if (_V_lastchar == "्") {
 		   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
 	       _vput=_vput.slice(0,-1);
-		   let _V_lastchar = _V.slice(-1,);	  
+		   _V_lastchar = _V.slice(-1,);	  
 	   }
    }
 
 	 
- /*  // if nukta, change previous alpaprana consonant to mahaprana
+  // if nukta, change previous alpaprana consonant to mahaprana
   if ( v == nukta ) {
 	  if ( arr_vyanjana_alpaprana.includes(_V_lastchar) ) {
-		  _V_lastchar = arr_vyanjana_mahaprana[arr_vyanjana_alpaprana.indexOf(_V_lastchar)];
+		  alpa_index = arr_vyanjana_alpaprana.indexOf(_V_lastchar);
+		  console.log(alpa_index);
+		  console.log(arr_vyanjana_mahaprana[alpa_index]);
 	  }
-	  if ( _V_lastchar == halanth && arr_vyanjana_alpaprana.includes(_V_penulchar ) {
-		  _V_penulchar = arr_vyanajana_mahaprana[arr_vyanjana_alpaprana.indexOf(_V_penulchar)];
-	  }
-	  _V = _V.slice(,-2) + _V_penulchar + _V_lastchar;   _vput+= _V.slice(-1,); 
+	  //if ( _V_lastchar == halanth && arr_vyanjana_alpaprana.includes(_V_penulchar ) {
+	//	  _V_penulchar = arr_vyanajana_mahaprana[arr_vyanjana_alpaprana.indexOf(_V_penulchar)];
+	 // }
+	  //_V = _V.slice(,-2) + _V_penulchar + _V_lastchar;   _vput+= _V.slice(-1,); 
   }
 	*/
 	 
