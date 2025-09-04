@@ -201,7 +201,7 @@ class VKey extends HTMLElement {
   // if nukta, change previous alpaprana consonant to mahaprana
   if ( v == nukta ) {
 	  if ( arr_vyanjana_alpaprana.includes(_V_lastchar) ) {
-		  alpa_index = arr_vyanjana_alpaprana.indexOf(_V_lastchar);
+		  let alpa_index = arr_vyanjana_alpaprana.indexOf(_V_lastchar);
 		  console.log(alpa_index);
 		  console.log(arr_vyanjana_mahaprana[alpa_index]);
 	  }
