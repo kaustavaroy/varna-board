@@ -209,9 +209,8 @@ class VKey extends HTMLElement {
 	//	  _V_penulchar = arr_vyanajana_mahaprana[arr_vyanjana_alpaprana.indexOf(_V_penulchar)];
 	 // }
 	  //_V = _V.slice(,-2) + _V_penulchar + _V_lastchar;   _vput+= _V.slice(-1,); 
-  }
-	*/
-	 
+   }
+		 
    // use matras if last char is vyanjana and new char is swara
    if ( arr_swara.includes(v) && arr_vyanjana.includes(_V_lastchar) ) {
 		   switch (v) {
