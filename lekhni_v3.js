@@ -251,6 +251,7 @@ class VKey extends HTMLElement {
 				   if ( arr_vyanjana_alpaprana.includes(_V_lastchar) ) {
 				  	   alpa_index = arr_vyanjana_alpaprana.indexOf(_V_lastchar);
                 	   maha_v = arr_vyanjana_mahaprana[alpa_index];
+					   // end_pos seems to be just start_pos+1 and is last char 
 					   console.log("start_pos",_start_pos, _V.substring(0,_start_pos))
 					   console.log("end_pos",_end_pos, _V.substring(_end_pos,))
  			           _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + maha_v;
@@ -262,8 +263,8 @@ class VKey extends HTMLElement {
 				   } else if ( _V_lastchar == halanth && arr_vyanjana_alpaprana.includes(_V_penulchar) ) {
 		              alpa_index = arr_vyanjana_alpaprana.indexOf(_V_penulchar);
 		              maha_v = arr_vyanjana_mahaprana[alpa_index];
-		 			  //_V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + maha_v;
-				      //_vput = _vput.slice(0,-1) + maha_v;
+		 			  _V = _V.substring(0,_start_pos-1) + maha_v + halanth;
+				      _vput = _vput.slice(0,-2) + maha_v + halanth;
 					  break;  
 				   } else {
 					    // default behavior
