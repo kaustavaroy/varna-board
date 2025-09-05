@@ -209,7 +209,7 @@ class VKey extends HTMLElement {
 		  console.log(alpa_index);
 		  console.log(maha_v);
 	  }
-	  if ( _V_lastchar == halanth && arr_vyanjana_alpaprana.includes(_V_penulchar ) {
+	  if ( _V_lastchar == halanth && arr_vyanjana_alpaprana.includes(_V_penulchar) ) {
 		  alpa_index = arr_vyanjana_alpaprana.indexOf(_V_penulchar);
 		  maha_v = arr_vyanjana_mahaprana[alpa_index];
 		  console.log(alpa_index);
