@@ -114,7 +114,7 @@ const halanth = String.fromCharCode(parseInt("094d", 16));
 const nukta = String.fromCharCode(parseInt("093c", 16));
 
 // swara (vowels)
-const swara = "अआइईउऊॠऌएऐऍऑओऔ";
+const swara = "अआइईउऊॠऌएऐऎऑओऔ";
 const arr_swara = [...swara];
 
 const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
