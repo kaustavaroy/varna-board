@@ -234,7 +234,7 @@ class VKey extends HTMLElement {
 		     case "ऌ": _V += String.fromCharCode(parseInt("962", 16));  _vput+= _V.slice(-1,); break;  
 		     case "ए": _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
 			 case "ऐ": _V += String.fromCharCode(parseInt("948", 16));  _vput+= _V.slice(-1,); break;
-			 case "ऍ": _V += String.fromCharCode(parseInt("946", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऎ": _V += String.fromCharCode(parseInt("946", 16));  _vput+= _V.slice(-1,); break;
 		     case "ऑ": _V += String.fromCharCode(parseInt("949", 16));  _vput+= _V.slice(-1,); break;
 		     case "ओ": _V += String.fromCharCode(parseInt("94b", 16));  _vput+= _V.slice(-1,); break;
      	     case "औ": _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
