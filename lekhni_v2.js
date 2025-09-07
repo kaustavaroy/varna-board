@@ -38,9 +38,8 @@ $vkey.innerHTML = `
 	<div class="caption nx"></div>
     <div class="caption n2"></div>
     <div class="caption n3"></div>
-	<div class="caption vball"></div>
   </div>
-  <div class="caption vball2"></div>
+  <div class="caption vball"></div>
 </div>
 <style>
   .vwrap {
@@ -58,7 +57,7 @@ $vkey.innerHTML = `
     justify-content: center;
     align-items: center;
   }
-  .vkey:hover, .vball:hover. .vball2:hover {
+  .vkey:hover, .vball:hover, .vball2:hover {
     cursor: pointer;
   }
   .caption {
@@ -162,7 +161,6 @@ class VKey extends HTMLElement {
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
     this.shadowRoot.querySelector(".caption.vball").innerText = _a[0];
-	this.shadowRoot.querySelector(".caption.vball2").innerText = _a[2];
 	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
     this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
@@ -308,7 +306,7 @@ class VKey extends HTMLElement {
     
     // vkey event handling
     // -------------------
-    ['vball', 'vball2', 'n0', 'n1', 'nx', 'n2', 'n3'].forEach(function(item) {
+    ['vkey', 'vball', 'n0', 'n1', 'nx', 'n2', 'n3'].forEach(function(item) {
       let _div = ".caption." + item;
       /*
       // click listener
