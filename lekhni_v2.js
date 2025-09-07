@@ -300,7 +300,7 @@ class VKey extends HTMLElement {
 		       // case "+": _V += "&#93e;"; break;
 			   case "अ": 
 				   if ( arr_swara_matra.includes(_V_lastchar) ) {
-					   _V += String.fromCharCode(parseInt("94d", 16));  _vput+= _V.slice(-1,); break;
+					   _V += String.fromCharCode(parseInt("93d", 16));  _vput+= _V.slice(-1,); break;
 				   }
 		       case "+": _V += String.fromCharCode(2366); break;
 		       default : _V += v; _vput+=v; break;
