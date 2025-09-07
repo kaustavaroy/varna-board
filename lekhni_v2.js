@@ -35,6 +35,7 @@ $vkey.innerHTML = `
   <div class="vkey">
     <div class="caption n0"></div>
     <div class="caption n1"></div>
+	<div class="caption nx"></div>
     <div class="caption n2"></div>
     <div class="caption n3"></div>
   </div>
@@ -66,16 +67,23 @@ $vkey.innerHTML = `
     color: rgba(0,0,0,0);
   }
 
-  .n0, .n1, .n2, .n3 {
-    width:  12px;
+  .n0, .n1, .nx, .n2, .n3 {
+    width:  15px;
     height: 12px;
     background-colork: red;
     padding: 0px;
   }
-
+  
+  .n2 {
+    color: white;
+    font-size: 12px;
+    font-weight: 300;
+  }
+  
   .n0 { transform: translate(  60%,  -120%);}
   .n1 { transform: translate( 150%,  -120%);}
-  .n2 { transform: translate(-150%,    90%);}
+  .nx { transform: translate(-150%,    90%);}
+  .n2 { transform: translate(-115%,    75%);}
   .n3 { transform: translate( -60%,    90%);}
 
   .vball {
@@ -84,18 +92,39 @@ $vkey.innerHTML = `
     background-color: rgba(0,0,0,0.2);
     border-radius: 50%;
     position: relative;
-    left: 12px;
-    top: -36px;
     text-align: center;
     line-height: 24px; /* to vertically center text; set to height*/
   }
   .vball {
-    color: white;
-    font-size: 18px;
-    font-weight: 900;
+    left: 12px;
+    top: -42px;
   }
+  .vball {
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+  }
+    
 </style>
 `;
+
+//  ् - halanth allows creation of conjunct vyanjana (consonants)
+const halanth = String.fromCharCode(parseInt("094d", 16));
+// ़ -  nukta changes vyanaja_alpaprana to vyanjana_mahaprana
+const nukta = String.fromCharCode(parseInt("093c", 16));
+
+// swara (vowels)
+const swara = "अआइईउऊॠऌएऐऎऑओऔ";
+const arr_swara = [...swara];
+
+const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
+const arr_vyanjana = [...vyanjana];
+
+const vyanajana_alpaprana = "कगचजटडतदपब";
+const arr_vyanjana_alpaprana = [... vyanajana_alpaprana];
+
+const vyanajana_mahaprana = "खघछझठढथधफभ";
+const arr_vyanjana_mahaprana = [... vyanajana_mahaprana];
 
 class VKey extends HTMLElement {
   constructor() {
@@ -109,15 +138,17 @@ class VKey extends HTMLElement {
     let _c = this.getAttribute('c').split(" ");
     this.shadowRoot.querySelector(".caption.n0").innerText = _a[0];
     this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
+    this.shadowRoot.querySelector(".caption.nx").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
     this.shadowRoot.querySelector(".caption.vball").innerText = _a[0];
-    this.shadowRoot.querySelector(".vkey").style.background = _c[0];
+	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
     this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n1").style.fontWeight = _s;
-    this.shadowRoot.querySelector(".caption.n2").style.fontWeight = _s;
+    this.shadowRoot.querySelector(".caption.nx").style.fontWeight = _s;
+	this.shadowRoot.querySelector(".caption.n2").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n3").style.fontWeight = _s;
   }
 
@@ -143,36 +174,107 @@ class VKey extends HTMLElement {
 
  put2_textarea(v) {
    let _V = document.all.keyinput.value;
+   let _V_lastchar = _V.slice(-1,);
+   let _V_penulchar = _V.slice(-2,-1);	 
    let _start_pos = document.all.keyinput.selectionStart;
    let _end_pos = document.all.keyinput.selectionEnd;
    if ( !!_end_pos && _start_pos == _end_pos ) {
      _start_pos--;
    }
+	 
    //let _vsel = document.all.vsel.innerText;
    let _vput = document.all.vput.innerText;
    if (_vput.length >= 5) {
      _vput = "";
    }
-   switch (v) {
-     case "␣": _V += " "; _vput = ""; break;
-     // after delete, cursor automaticaaly moves to end
-     case "⌫":
-     _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
-     _vput=_vput.slice(0,-1);
-     break;
-    // case "+": _V += "&#93e;"; break;
-     case "✹": _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break;
-     case "इ": _V += String.fromCharCode(2367); _vput+= _V.slice(-1,); break;
-     case "उ": _V += String.fromCharCode(parseInt("941", 16));  _vput+= _V.slice(-1,); break;
-     case "ए": _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
-     case "ओ": _V += String.fromCharCode(parseInt("94b", 16));  _vput+= _V.slice(-1,); break;
-     case "औ": _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
-     case "ऋ": _V += String.fromCharCode(parseInt("943", 16));  _vput+= _V.slice(-1,); break;
-     case "ऌ": _V += String.fromCharCode(parseInt("962", 16));  _vput+= _V.slice(-1,); break;
-     case "ए": _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
-     case "+": _V += String.fromCharCode(2366); break;
-     default : _V += v; _vput+=v; break;
+	 
+   // remove previous halanth if swara (vowel) being added
+   if (arr_swara.includes(v)) {
+	   if (_V_lastchar == "्") {
+		   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
+	       _vput = _vput.slice(0,-1);
+		   _V_lastchar = _V.slice(-1,);	  
+	   }
    }
+
+  // initialize	 
+  let alpa_index = 0;
+  let maha_v = arr_vyanjana_mahaprana[alpa_index];
+		  	 
+  // if nukta, change previous alpaprana consonant to mahaprana
+  if ( v == nukta ) {
+	  if ( arr_vyanjana_alpaprana.includes(_V_lastchar) ) {
+		  alpa_index = arr_vyanjana_alpaprana.indexOf(_V_lastchar);
+		  maha_v = arr_vyanjana_mahaprana[alpa_index];
+		  console.log(alpa_index);
+		  console.log(maha_v);
+	  }
+	  if ( _V_lastchar == halanth && arr_vyanjana_alpaprana.includes(_V_penulchar) ) {
+		  alpa_index = arr_vyanjana_alpaprana.indexOf(_V_penulchar);
+		  maha_v = arr_vyanjana_mahaprana[alpa_index];
+		  console.log(alpa_index);
+		  console.log(maha_v);
+	  }
+	  //_V = _V.slice(,-2) + _V_penulchar + _V_lastchar;   _vput+= _V.slice(-1,); 
+   }
+		 
+   // use matras if last char is vyanjana and new char is swara
+   if ( arr_swara.includes(v) && arr_vyanjana.includes(_V_lastchar) ) {
+		   switch (v) {
+		     // const swara = "अआइईउऊॠऌएऐऍऑओऔ";
+			 // const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
+             // const arr_vyanjana = [...vyanjana];
+		     // https://www.unicode.org/charts/nameslist/n_0900.html
+		     case "आ": _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break; 
+			 case "इ": _V += String.fromCharCode(parseInt("93f", 16)); _vput+= _V.slice(-1,); break;
+			 case "ई": _V += String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
+		     case "उ": _V += String.fromCharCode(parseInt("941", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऊ": _V += String.fromCharCode(parseInt("942", 16));  _vput+= _V.slice(-1,); break;
+		     case "ऋ": _V += String.fromCharCode(parseInt("943", 16));  _vput+= _V.slice(-1,); break;
+		     case "ऌ": _V += String.fromCharCode(parseInt("962", 16));  _vput+= _V.slice(-1,); break;  
+		     case "ए": _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऐ": _V += String.fromCharCode(parseInt("948", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऎ": _V += String.fromCharCode(parseInt("946", 16));  _vput+= _V.slice(-1,); break;
+		     case "ऑ": _V += String.fromCharCode(parseInt("949", 16));  _vput+= _V.slice(-1,); break;
+		     case "ओ": _V += String.fromCharCode(parseInt("94b", 16));  _vput+= _V.slice(-1,); break;
+     	     case "औ": _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
+	   }
+   } else {	 
+		   switch (v) {	   
+		       case "␣": _V += " "; _vput = ""; break;
+		       // after delete, cursor automaticaaly moves to end
+		       case "⌫":
+		           _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
+		           _vput=_vput.slice(0,-1);
+		           break;
+			   case nukta:  
+				   if ( arr_vyanjana_alpaprana.includes(_V_lastchar) ) {
+				  	   alpa_index = arr_vyanjana_alpaprana.indexOf(_V_lastchar);
+                	   maha_v = arr_vyanjana_mahaprana[alpa_index];
+					   // end_pos seems to be just start_pos+1 and is last char 
+					   console.log("start_pos",_start_pos, _V.substring(0,_start_pos))
+					   console.log("end_pos",_end_pos, _V.substring(_end_pos,))
+ 			           _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + maha_v;
+				       _vput = _vput.slice(0,-1) + maha_v;
+					   _V_lastchar = maha_v;
+					   console.log("start_pos",_start_pos, _V.substring(0,_start_pos))
+					   console.log("end_pos",_end_pos, _V.substring(_end_pos,))
+		               break;
+				   } else if ( _V_lastchar == halanth && arr_vyanjana_alpaprana.includes(_V_penulchar) ) {
+		              alpa_index = arr_vyanjana_alpaprana.indexOf(_V_penulchar);
+		              maha_v = arr_vyanjana_mahaprana[alpa_index];
+		 			  _V = _V.substring(0,_start_pos-1) + maha_v + halanth;
+				      _vput = _vput.slice(0,-2) + maha_v + halanth;
+					  break;  
+				   } else {
+					    // default behavior
+					    _V += v; _vput+=v; break;
+				   }   
+		       // case "+": _V += "&#93e;"; break;
+		       case "+": _V += String.fromCharCode(2366); break;
+		       default : _V += v; _vput+=v; break;
+		   }
+   }	   
    document.all.vput.innerText = _vput;
    document.all.keyinput.value = _V;
    document.all.keyinput.focus();
@@ -185,7 +287,7 @@ class VKey extends HTMLElement {
     
     // vkey event handling
     // -------------------
-    ['vball', 'n0', 'n1', 'n2', 'n3'].forEach(function(item) {
+    ['vball', 'n0', 'n1', 'nx', 'n2', 'n3'].forEach(function(item) {
       let _div = ".caption." + item;
       /*
       // click listener
@@ -226,7 +328,9 @@ class VKey extends HTMLElement {
         function(e) {
           e.preventDefault(); e.stopPropagation();
           // pointerup corresponds to click
-		  _this.put2_textarea(_this.set_vsel_innerText(e));
+		  //_this.put2_textarea(_this.set_vsel_innerText(e));
+			_this.put2_textarea(document.all.vsel.innerText);
+
         });
 	  /*		
       _this.shadowRoot.querySelector(_div).addEventListener('pointercancel',
