@@ -117,6 +117,13 @@ const nukta = String.fromCharCode(parseInt("093c", 16));
 const swara = "अआइईउऊऋॠऌएऐऎऑओऔ";
 const arr_swara = [...swara];
 
+let swara_matra = "";
+// ऽ ा ि ी ु ू ृ ॄ ॅ ॆ े ै ॉ ॊ ो ौ
+for ( let i = 0x93d; i < 0x94d; i++) {
+   swara_matra += String.fromCharCode(i) + " ";
+}
+const arr_swara_matra = [...swara_matra];
+
 const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
 const arr_vyanjana = [...vyanjana];
 
@@ -269,7 +276,11 @@ class VKey extends HTMLElement {
 				   } else {
 					    // default behavior
 					    _V += v; _vput+=v; break;
-				   }   
+				   }
+				case "अ": 
+				   if ( arr_swara_matra.includes(_V_lastchar) ) {
+					   _V += String.fromCharCode(parseInt("93d", 16));  _vput+= _V.slice(-1,); break;
+				   }
 		       // case "+": _V += "&#93e;"; break;
 		       case "+": _V += String.fromCharCode(2366); break;
 		       default : _V += v; _vput+=v; break;
