@@ -56,6 +56,7 @@ $vkey.innerHTML = `
     display: inline-flex;
     justify-content: center;
     align-items: center;
+	margin-left: -36px;
   }
   .vkey:hover, .vball:hover {
     cursor: pointer;
