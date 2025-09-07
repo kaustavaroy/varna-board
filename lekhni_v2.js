@@ -361,7 +361,7 @@ class VKey extends HTMLElement {
 	  */	
       _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
         function(e) {
-          e.preventDefault(); e.stopPropagation();
+          e.preventDefault(); 
           var touch = e.touches[0];
           var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
           console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText);
