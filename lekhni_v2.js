@@ -116,8 +116,8 @@ $vkey.innerHTML = `
     line-height: 12px; /* to vertically center text; set to height*/
   }
   .vball2 {
-    left: 18px;
-    top: -18px;
+    left: 24px;
+    top: -90px;
   }
   .vball2 {
     color: white;
