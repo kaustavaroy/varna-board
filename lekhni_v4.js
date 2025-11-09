@@ -84,7 +84,7 @@ $vkey.innerHTML = `
   .n0 { transform: translate(  60%,  -120%);}
   .n1 { transform: translate( 150%,  -120%);}
   .nx { transform: translate(-150%,    90%);}
-  .n2 { transform: translate(-115%,    70%);}
+  .n2 { transform: translate(-110%,    65%);}
   .n3 { transform: translate( -60%,    90%);}
 
   .vball {
