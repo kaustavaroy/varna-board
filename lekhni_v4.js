@@ -78,12 +78,13 @@ $vkey.innerHTML = `
     color: white;
     font-size: 12px;
     font-weight: 300;
+	text-align: center;
   }
   
   .n0 { transform: translate(  60%,  -120%);}
   .n1 { transform: translate( 150%,  -120%);}
   .nx { transform: translate(-150%,    90%);}
-  .n2 { transform: translate(-115%,    75%);}
+  .n2 { transform: translate(-115%,    70%);}
   .n3 { transform: translate( -60%,    90%);}
 
   .vball {
