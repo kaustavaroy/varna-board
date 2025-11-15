@@ -96,6 +96,7 @@ $vkey.innerHTML = `
     position: relative;
     text-align: center;
     line-height: 24px; /* to vertically center text; set to height*/
+	z-index: 1;
   }
   .vball {
     left: 12px;
