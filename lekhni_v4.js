@@ -62,7 +62,7 @@ $vkey.innerHTML = `
   }
   .caption {
     font-size: 12px;
-    font-weight: 900;
+    font-weight: 600;
     font-family: 'Noto Sans', sans-serif;
     color: rgba(0,0,0,0);
   }
@@ -72,12 +72,13 @@ $vkey.innerHTML = `
     height: 12px;
     background-colork: red;
     padding: 0px;
+	z-index: 2;
   }
   
   .n2 {
     color: white;
-    font-size: 12px;
-    font-weight: 300;
+    font-size: 10px;
+    font-weight: 200;
 	text-align: center;
   }
   
