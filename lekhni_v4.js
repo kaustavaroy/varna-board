@@ -38,8 +38,9 @@ $vkey.innerHTML = `
 	<div class="caption nx"></div>
     <div class="caption n2"></div>
     <div class="caption n3"></div>
+	<div class="caption vball"></div>
   </div>
-  <div class="caption vball"></div>
+  
 </div>
 <style>
   .vwrap {
