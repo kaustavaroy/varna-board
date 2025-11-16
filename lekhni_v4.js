@@ -363,15 +363,14 @@ class VKey extends HTMLElement {
 		
 
     })  // end forEach
-
-    // vball event handlers
-
+ // vball event handlers
   }
 
   disconnectedCallback() {
     this.shadowRoot.querySelector('.caption').removeEventListener();
   }
 
+// end class Vkey	
 }
 
 
@@ -382,6 +381,23 @@ class CKey extends VKey {
     //document.body.vkey.background-color = green;
   }
 }
+
+
+// Add Event Handler to viewrow to cancel (unset) vsel
+// ---------------------------------------------------
+// Define the event handler function
+function handlePointerEnter(event) {
+  console.log('Pointer entered the div!', event.target);
+  // You can add any desired actions here, e.g., change background color
+  // event.target.style.backgroundColor = 'lightgreen';
+  document.all.vsel.innerText = "";	
+}
+// Get a reference to the div element
+const myDiv = document.getElementById('viewrow');
+// Attach the pointerenter event listener to the div
+myDiv.addEventListener('pointerenter', handlePointerEnter);
+
+
 
 // works in chrome, not in firefox; custom elements must be hypenated
 window.customElements.define('v-key', VKey);
