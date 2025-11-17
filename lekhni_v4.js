@@ -134,6 +134,9 @@ const arr_vyanjana_alpaprana = [... vyanajana_alpaprana];
 const vyanajana_mahaprana = "खघछझठढथधफभ";
 const arr_vyanjana_mahaprana = [... vyanajana_mahaprana];
 
+const vowels = "aeiou";
+const arr_vowels = [... vowels];
+
 class VKey extends HTMLElement {
   constructor() {
     super();
@@ -247,6 +250,17 @@ class VKey extends HTMLElement {
 		     case "ओ": _V += String.fromCharCode(parseInt("94b", 16));  _vput+= _V.slice(-1,); break;
      	     case "औ": _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
 	   }
+   } else if  ( arr_vowels.includes(v) && arr_vowels.includes(_V_lastchar) ) {
+	   // handling elongated english vowels and diphthongs
+	    vv = v + _V_lastchar;
+	    switch (vv) {
+		     // const vowels = "aeiou"
+			case "aa":  _V += "ā"; _vput+= _V.slice(-1,); break;
+			case "ee":  _V += "éi"; _vput+= _V.slice(-2,); break;
+			case "ii":  _V += "ē"; _vput+= _V.slice(-1,); break;
+    		case "oo":  _V += "ō"; _vput+= _V.slice(-1,); break;
+			case "uu":  _V += "oo"; _vput+= _V.slice(-2,); break;
+		}
    } else {	 
 		   switch (v) {	   
 		       case "␣": _V += " "; _vput = ""; break;
@@ -396,7 +410,7 @@ function handlePointerEnter(event) {
 const vrowDiv = document.getElementById('vrow');
 // Attach the pointerenter event listener to the div
 vrowDiv.addEventListener('pointerenter', handlePointerEnter);
-
+vrowDiv.addEventListener('touchmove', handlePointerEnter);
 
 
 // works in chrome, not in firefox; custom elements must be hypenated
