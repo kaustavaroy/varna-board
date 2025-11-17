@@ -393,9 +393,9 @@ function handlePointerEnter(event) {
   document.all.vsel.innerText = "";	
 }
 // Get a reference to the div element
-const myDiv = document.getElementById('viewrow');
+const vrowDiv = document.getElementById('vrow');
 // Attach the pointerenter event listener to the div
-myDiv.addEventListener('pointerenter', handlePointerEnter);
+vrowDiv.addEventListener('pointerenter', handlePointerEnter);
 
 
 
