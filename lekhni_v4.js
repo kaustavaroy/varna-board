@@ -260,6 +260,7 @@ class VKey extends HTMLElement {
 			case "ii":  _V += "ē"; _vput+= _V.slice(-1,); break;
     		case "oo":  _V += "ō"; _vput+= _V.slice(-1,); break;
 			case "uu":  _V += "oo"; _vput+= _V.slice(-2,); break;
+			default : _V += v; _vput+=v; break;
 		}
    } else {	 
 		   switch (v) {	   
