@@ -258,8 +258,10 @@ class VKey extends HTMLElement {
 			case "aa":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ā"; _vput+= _V.slice(-1,); break;
 			case "ee":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "éi"; _vput+= _V.slice(-2,); break;
 			case "ii":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ē"; _vput+= _V.slice(-1,); break;
-    		case "oo":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ō"; _vput+= _V.slice(-1,); break;
-			case "uu":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "oo"; _vput+= _V.slice(-2,); break;
+    		case "oa":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ō"; _vput+= _V.slice(-1,); break;
+			case "oo": 
+			case "uu":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "û"; _vput+= _V.slice(-1,); break;
+			case "iu":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ū"; _vput+= _V.slice(-2,); break;
 			default : _V += v; _vput+=v; break;
 		}
    } else {	 
