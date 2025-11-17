@@ -255,11 +255,11 @@ class VKey extends HTMLElement {
 	    let vv = v + _V_lastchar;
 	    switch (vv) {
 		     // const vowels = "aeiou"
-			case "aa":  _V += "ā"; _vput+= _V.slice(-1,); break;
-			case "ee":  _V += "éi"; _vput+= _V.slice(-2,); break;
-			case "ii":  _V += "ē"; _vput+= _V.slice(-1,); break;
-    		case "oo":  _V += "ō"; _vput+= _V.slice(-1,); break;
-			case "uu":  _V += "oo"; _vput+= _V.slice(-2,); break;
+			case "aa":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ā"; _vput+= _V.slice(-1,); break;
+			case "ee":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "éi"; _vput+= _V.slice(-2,); break;
+			case "ii":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ē"; _vput+= _V.slice(-1,); break;
+    		case "oo":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ō"; _vput+= _V.slice(-1,); break;
+			case "uu":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "oo"; _vput+= _V.slice(-2,); break;
 			default : _V += v; _vput+=v; break;
 		}
    } else {	 
