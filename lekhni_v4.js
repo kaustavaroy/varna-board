@@ -252,7 +252,7 @@ class VKey extends HTMLElement {
 	   }
    } else if  ( arr_vowels.includes(v) && arr_vowels.includes(_V_lastchar) ) {
 	   // handling elongated english vowels and diphthongs
-	    vv = v + _V_lastchar;
+	    let vv = v + _V_lastchar;
 	    switch (vv) {
 		     // const vowels = "aeiou"
 			case "aa":  _V += "ā"; _vput+= _V.slice(-1,); break;
