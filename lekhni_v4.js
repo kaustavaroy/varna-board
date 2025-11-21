@@ -300,8 +300,9 @@ class VKey extends HTMLElement {
 					   _V += String.fromCharCode(parseInt("93d", 16));  _vput+= _V.slice(-1,); break;
 				   }
 		       // case "+": _V += "&#93e;"; break;
-		       case "+": _V += String.fromCharCode(2366); break;
-		       default : _V += v; _vput+=v; break;
+		       // case "+": _V += String.fromCharCode(2366); break;
+				case "--" : break;  
+		        default : _V += v; _vput+=v; break;
 		   }
    }	   
    document.all.vput.innerText = _vput;
