@@ -60,7 +60,7 @@ $vkey.innerHTML = `
     color: white;
   }
 
-  .vkey>div {
+  .vkey div {
     width:  50%;
     height: 50%;
 	box-sizing: border-box;
