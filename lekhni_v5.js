@@ -44,7 +44,7 @@ $vkey.innerHTML = `
     width: 48px;
     border: black 0px solid;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background-color: rgba(250,0,100,0.8);
+    background-color: rgba(250,0,100,0.1);
     /*background-image: linear-gradient(180deg, #C61657 0%, #A61657 74%);*/
     display: flex;
 	flex-wrap: wrap;
@@ -116,8 +116,8 @@ class VKey extends HTMLElement {
     this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
-  	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
-    this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
+  	this.shadowRoot.querySelector(".vkey>div").style.background = _c[0];
+    this.shadowRoot.querySelector(".vkey>div").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n1").style.fontWeight = _s;
