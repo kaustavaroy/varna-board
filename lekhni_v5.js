@@ -54,7 +54,7 @@ $vkey.innerHTML = `
     cursor: pointer;
   }
   .caption {
-    font-size: 12px;
+    font-size: 9px;
     font-weight: 300;
     font-family: 'Noto Sans', sans-serif;
     color: white;
