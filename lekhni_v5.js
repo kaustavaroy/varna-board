@@ -57,7 +57,7 @@ $vkey.innerHTML = `
     font-size: 12px;
     font-weight: 300;
     font-family: 'Noto Sans', sans-serif;
-    color: rgba(0,0,0,0);
+    color: white;
   }
 
   .vkey>div {
