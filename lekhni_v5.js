@@ -5,6 +5,7 @@ Desc:   varna keys and board templates
 Auth:   kaustava roy
 Date:   June 21, 2021; international yoga day
 Ver0:   2021.02.00; year.quarter.revision
+Ver5:   2025.04.00; 2024/11/23
 */
 
 
@@ -114,8 +115,8 @@ class VKey extends HTMLElement {
     this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
-  	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
-    this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
+  	// this.shadowRoot.querySelector(".vkey").style.background = _c[0];
+    // this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n1").style.fontWeight = _s;
