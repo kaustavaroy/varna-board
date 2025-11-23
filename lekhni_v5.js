@@ -31,22 +31,13 @@ modifications.
 // 1. Create template for hexagonal varna key; use '$' prefix for template names
 const $vkey = document.createElement('template');
 $vkey.innerHTML = `
-<div class="vwrap">
-  <div class="caption vball"></div>
-  <div class="vkey">
-    <div class="caption n0"></div>
-    <div class="caption n1"></div>
-   	<div class="caption nx"></div>
-    <div class="caption n2"></div>
-    <div class="caption n3"></div>
-  </div>
-  </div>
+<div class="vkey">
+  <div class="caption n0"></div>
+  <div class="caption n1"></div>
+  <div class="caption n2"></div>
+  <div class="caption n3"></div>
+</div>
 <style>
-  .vwrap {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
   .vkey {
     height: 48px;
     width: 48px;
@@ -54,11 +45,11 @@ $vkey.innerHTML = `
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     background-color: rgba(250,0,100,0.8);
     /*background-image: linear-gradient(180deg, #C61657 0%, #A61657 74%);*/
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
   }
-  .vkey:hover, .vball:hover {
+  .vkey:hover {
     cursor: pointer;
   }
   .caption {
@@ -68,44 +59,15 @@ $vkey.innerHTML = `
     color: rgba(0,0,0,0);
   }
 
-  .n0, .n1, .nx, .n2, .n3 {
-    width:  15px;
-    height: 12px;
-    background-colork: red;
-    padding: 0px;
+  .vkey>div {
+    width:  50%;
+    height: 50%;
+	box-sizing: border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  .n2 {
-    color: white;
-    font-size: 10px;
-    font-weight: 200;
-	text-align: center;
-  }
-  
-  .n0 { transform: translate(  60%,  -120%);}
-  .n1 { transform: translate( 160%,  -110%);}
-  .nx { transform: translate(-150%,    90%);}
-  .n2 { transform: translate(-110%,    110%);}
-  .n3 { transform: translate( -60%,    90%);}
-
-  .vball {
-    width: 24px;
-    height: 24px;
-    background-color: rgba(0,0,0,0.2);
-    border-radius: 50%;
-    position: relative;
-    text-align: center;
-    line-height: 24px; /* to vertically center text; set to height*/
-  }
-  .vball {
-    left: 12px;
-    top: -42px;
-  }
-  .vball {
-    color: white;
-    font-size: 16px;
-    font-weight: 300;
-  }
     
 </style>
 `;
@@ -150,17 +112,14 @@ class VKey extends HTMLElement {
     let _c = this.getAttribute('c').split(" ");
     this.shadowRoot.querySelector(".caption.n0").innerText = _a[0];
     this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
-    this.shadowRoot.querySelector(".caption.nx").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
-    this.shadowRoot.querySelector(".caption.vball").innerText = _a[0];
-	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
+  	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
     this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n1").style.fontWeight = _s;
-    this.shadowRoot.querySelector(".caption.nx").style.fontWeight = _s;
-	this.shadowRoot.querySelector(".caption.n2").style.fontWeight = _s;
+  	this.shadowRoot.querySelector(".caption.n2").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n3").style.fontWeight = _s;
   }
 
@@ -178,10 +137,7 @@ class VKey extends HTMLElement {
     .filter(function() {  return this.nodeType == Node.TEXT_NODE;})
     .text()
   );*/
-   // update vball
-   //let _vball = e.target.parentNode.parentNode.children[1];
-   //_vball.innerText = _text;
-   return _text;
+  return _text;
  }
 
  put2_textarea(v) {
@@ -318,7 +274,7 @@ class VKey extends HTMLElement {
     
     // vkey event handling
     // -------------------
-    ['vball', 'n0', 'n1', 'nx', 'n2', 'n3'].forEach(function(item) {
+    ['n0', 'n1', 'n2', 'n3'].forEach(function(item) {
       let _div = ".caption." + item;
       /*
       // click listener
@@ -329,21 +285,7 @@ class VKey extends HTMLElement {
           document.all.vsel.innerText = e.target.innerText;
         });
       */
-      // swipe listener - causing keyboard display corruption. comment out.
-		/*
-      _this.shadowRoot.querySelector(_div).addEventListener('pointerdown',
-        function(e) {
-          e.preventDefault(); e.stopPropagation();
-          _this.set_vsel_innerText(e);
-          
-         if (e.which==lastKey) {
-			      if (!timer) timer=setTimeout(console.log("hello"), 200);
-			      return;
-		     }
-		     lastKey=e.which;
-          
-        });
-      */
+      
       _this.shadowRoot.querySelector(_div).addEventListener('pointerenter',
         function(e) {
           e.preventDefault(); e.stopPropagation();
@@ -362,15 +304,8 @@ class VKey extends HTMLElement {
 		  //_this.put2_textarea(_this.set_vsel_innerText(e));
 			_this.put2_textarea(document.all.vsel.innerText);
 
-        });
-	  /*		
-      _this.shadowRoot.querySelector(_div).addEventListener('pointercancel',
-        function(e) {
-          e.preventDefault(); e.stopPropagation();
-		  // pointerend corresponds to touch remove
-		  //_this.put2_textarea(_this.set_vsel_innerText(e));	
       });
-	  */	
+	  	
       _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
         function(e) {
           e.preventDefault(); e.stopPropagation();
@@ -382,8 +317,7 @@ class VKey extends HTMLElement {
 		
 
     })  // end forEach
- // vball event handlers
-  }
+  } // end connectedCallback
 
   disconnectedCallback() {
     this.shadowRoot.querySelector('.caption').removeEventListener();
