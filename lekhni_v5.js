@@ -290,18 +290,18 @@ class VKey extends HTMLElement {
       
       _this.shadowRoot.querySelector(_div).addEventListener('pointerenter',
         function(e) {
-          e.preventDefault(); e.stopPropagation();
+          e.preventDefault(); 
           _this.set_vsel_innerText(e);
       });
       _this.shadowRoot.querySelector(_div).addEventListener('pointerout',
         function(e) {
-          e.preventDefault(); e.stopPropagation();
+          e.preventDefault();
 		  document.all.vsel.innerText = "";
       });
 	  
 	  _this.shadowRoot.querySelector(_div).addEventListener('pointerup',
         function(e) {
-          e.preventDefault(); e.stopPropagation();
+          e.preventDefault(); 
           // pointerup corresponds to click
 		  //_this.put2_textarea(_this.set_vsel_innerText(e));
 			_this.put2_textarea(document.all.vsel.innerText);
@@ -310,7 +310,7 @@ class VKey extends HTMLElement {
 	  	
       _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
         function(e) {
-          e.preventDefault(); e.stopPropagation();
+          e.preventDefault(); 
           var touch = e.touches[0];
           var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
           console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText);
