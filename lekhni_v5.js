@@ -116,8 +116,8 @@ class VKey extends HTMLElement {
     this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
-  	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
-    this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
+  	this.shadowRoot.querySelector(".vkey div").style.background = _c[0];
+    this.shadowRoot.querySelector(".vkey div").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n1").style.fontWeight = _s;
