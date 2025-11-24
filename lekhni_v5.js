@@ -116,8 +116,11 @@ class VKey extends HTMLElement {
     this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
-  	this.shadowRoot.querySelectorAll(".vkey div").style.background = _c[0];
-    this.shadowRoot.querySelectorAll(".vkey div").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
+  	this.shadowRoot.querySelectorAll(".vkey div").forEach(function(item) {
+		item.style.background = _c[0];
+		style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
+	}	
+    //this.shadowRoot.querySelectorAll(".vkey div").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n1").style.fontWeight = _s;
@@ -290,18 +293,18 @@ class VKey extends HTMLElement {
       
       _this.shadowRoot.querySelector(_div).addEventListener('pointerenter',
         function(e) {
-          e.preventDefault(); 
+          e.preventDefault(); e.stopPropagation();
           _this.set_vsel_innerText(e);
       });
       _this.shadowRoot.querySelector(_div).addEventListener('pointerout',
         function(e) {
-          e.preventDefault();
+          e.preventDefault(); e.stopPropagation();
 		  document.all.vsel.innerText = "";
       });
 	  
 	  _this.shadowRoot.querySelector(_div).addEventListener('pointerup',
         function(e) {
-          e.preventDefault(); 
+          e.preventDefault(); e.stopPropagation();
           // pointerup corresponds to click
 		  //_this.put2_textarea(_this.set_vsel_innerText(e));
 			_this.put2_textarea(document.all.vsel.innerText);
@@ -310,7 +313,7 @@ class VKey extends HTMLElement {
 	  	
       _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
         function(e) {
-          e.preventDefault(); 
+          e.preventDefault(); e.stopPropagation();
           var touch = e.touches[0];
           var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
           console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText);
@@ -322,7 +325,11 @@ class VKey extends HTMLElement {
   } // end connectedCallback
 
   disconnectedCallback() {
-    this.shadowRoot.querySelector('.caption').removeEventListener();
+	  const _this = this;
+	  ['n0', 'n1', 'n2', 'n3'].forEach(function(item) {
+        let _div = ".caption." + item;
+        _this.shadowRoot.querySelector(_div).removeEventListener();
+	  }
   }
 
 // end class Vkey	
