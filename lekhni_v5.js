@@ -44,7 +44,7 @@ $vkey.innerHTML = `
     width: 48px;
     border: black 0px solid;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background-color: rgba(250,0,100,0.9);
+    background-color: rgba(250,0,100,0.3);
     /*background-image: linear-gradient(180deg, #C61657 0%, #A61657 74%);*/
     display: flex;
 	flex-wrap: wrap;
@@ -61,16 +61,17 @@ $vkey.innerHTML = `
   }
 
   .vkey div {
-    width:  50%;
+    width:  20%;
     height: 50%;
 	box-sizing: border-box;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-	z-index: 1;
   }
-  
-    
+.n0, .n2 {
+    width:  80%;
+}
+
 </style>
 `;
 
