@@ -34,8 +34,10 @@ const $vkey = document.createElement('template');
 $vkey.innerHTML = `
 <div class="vkey">
   <div class="caption n0"></div>
+  <div class="caption nt"></div>
   <div class="caption n1"></div>
   <div class="caption n2"></div>
+  <div class="caption nb"></div>
   <div class="caption n3"></div>
 </div>
 <style>
@@ -61,16 +63,13 @@ $vkey.innerHTML = `
   }
 
   .vkey div {
-    width:  20%;
+    width:  33%;
     height: 50%;
 	box-sizing: border-box;
     display: inline-flex;
     justify-content: center;
     align-items: center;
   }
-.n0, .n2 {
-    width:  80%;
-}
 
 </style>
 `;
@@ -117,8 +116,8 @@ class VKey extends HTMLElement {
     this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
-  	this.shadowRoot.querySelectorAll(".vkey").style.background = _c[0];
-	this.shadowRoot.querySelectorAll(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
+  	this.shadowRoot.querySelector(".vkey.caption.nt").style.background = _c[0];
+	this.shadowRoot.querySelector(".vkey.caption.nt").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n1").style.fontWeight = _s;
