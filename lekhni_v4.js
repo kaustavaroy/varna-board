@@ -370,7 +370,7 @@ class VKey extends HTMLElement {
 		  //_this.put2_textarea(_this.set_vsel_innerText(e));	
       });
 	  */	
-      _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
+      _this.shadowRoot.querySelector(_div).addEventListener('touchstart',
         function(e) {
           e.preventDefault(); e.stopPropagation();
           var touch = e.touches[0];
@@ -378,6 +378,7 @@ class VKey extends HTMLElement {
           console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText);
           document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
       });
+	 
 		
 
     })  // end forEach
