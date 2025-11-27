@@ -370,12 +370,14 @@ class VKey extends HTMLElement {
 		  //_this.put2_textarea(_this.set_vsel_innerText(e));	
       });
 	  */	
-      _this.shadowRoot.querySelector(_div).addEventListener('touchstart',
+      _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
         function(e) {
           e.preventDefault(); e.stopPropagation();
           var touch = e.touches[0];
           var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-          console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText);
+          const parentElement_children =  realTarget.shadowRoot.querySelector(_div).parentElement.children;
+		  console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText, realTarget.getBoundingClientRect(), parentElement_children);
+	      
           document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
       });
 	 
