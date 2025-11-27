@@ -276,8 +276,8 @@ class VKey extends HTMLElement {
     
     // vkey event handling
     // -------------------
-    ['n0', 'n1', 'n2', 'n3'].forEach(function(item) {
-      let _div = ".caption." + item;
+    ['.caption'].forEach(function(item) {
+      let _div =  item;
       /*
       // click listener
       _this.shadowRoot.querySelector(_div).addEventListener('click',
