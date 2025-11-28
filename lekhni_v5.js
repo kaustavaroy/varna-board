@@ -378,8 +378,17 @@ class VKey extends HTMLElement {
 		  var y0 = touch.clientY;
           var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
           const parentElement_children =  realTarget.shadowRoot.querySelector(_div).parentElement.children;
-		  console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText, x0:y0, realTarget);
-	      
+		  console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText, x0, y0, realTarget);
+          document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
+      });
+		 _this.shadowRoot.querySelector(_div).addEventListener('touchstart',
+        function(e) {
+          e.preventDefault(); e.stopPropagation();
+          var touch = e.touches[0];
+		  var x0 = touch.clientX;
+		  var y0 = touch.clientY;
+          var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+		  console.log("TgtStart", realTarget.shadowRoot.querySelector(_div).innerText, x0, y0, realTarget, e.touches);
           document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
       });
 	 
