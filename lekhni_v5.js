@@ -382,8 +382,8 @@ class VKey extends HTMLElement {
           var realTarget = document.elementFromPoint(touchX0, touchY0);
           console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText, parent_element);
 		  // Calculate position relative to the element
-          const relativeX = touchX - rect.left;
-          const relativeY = touchY - rect.top;
+          const relativeX = touchX0 - rect.left;
+          const relativeY = touchY0 - rect.top;
           // Check if the touch is within the bounds
           if (relativeX >= 0 && relativeX <= rect.width && relativeY >= 0 && relativeY <= rect.height) {
              console.log(`Touch is inside the element at relative coordinates: (${relativeX}, ${relativeY})`);
