@@ -5,7 +5,6 @@ Desc:   varna keys and board templates
 Auth:   kaustava roy
 Date:   June 21, 2021; international yoga day
 Ver0:   2021.02.00; year.quarter.revision
-Ver5:   2025.04.00; 2024/11/23
 */
 
 
@@ -32,45 +31,81 @@ modifications.
 // 1. Create template for hexagonal varna key; use '$' prefix for template names
 const $vkey = document.createElement('template');
 $vkey.innerHTML = `
-<div class="vkey">
-  <div class="caption n0"></div>
-  <div class="caption nt"></div>
-  <div class="caption n1"></div>
-  <div class="caption n2"></div>
-  <div class="caption nb"></div>
-  <div class="caption n3"></div>
+<div class="vwrap">
+  <div class="vkey">
+    <div class="caption n0"></div>
+    <div class="caption n1"></div>
+	<div class="caption nx"></div>
+    <div class="caption n2"></div>
+    <div class="caption n3"></div>
+  </div>
+  <div class="caption vball"></div>
 </div>
 <style>
+  .vwrap {
+    positionk: relative;
+  }
+
   .vkey {
     height: 48px;
     width: 48px;
     border: black 0px solid;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background-color: rgba(250,0,100,0.3);
+    background-color: rgba(250,0,100,0.8);
     /*background-image: linear-gradient(180deg, #C61657 0%, #A61657 74%);*/
-    display: flex;
-	flex-wrap: wrap;
-	overflow: hidden;
-  }
-  .vkey:hover {
-    cursor: pointer;
-  }
-  .caption {
-    font-size: 9px;
-    font-weight: 300;
-    font-family: 'Noto Sans', sans-serif;
-    color: white;
-  }
-
-  .vkey div {
-    width:  33%;
-    height: 50%;
-	box-sizing: border-box;
     display: inline-flex;
     justify-content: center;
     align-items: center;
   }
+  .vkey:hover, .vball:hover {
+    cursor: pointer;
+  }
+  .caption {
+    font-size: 12px;
+    font-weight: 300;
+    font-family: 'Noto Sans', sans-serif;
+    color: rgba(0,0,0,0);
+  }
 
+  .n0, .n1, .nx, .n2, .n3 {
+    width:  15px;
+    height: 12px;
+    background-colork: red;
+    padding: 0px;
+  }
+  
+  .n2 {
+    color: white;
+    font-size: 10px;
+    font-weight: 200;
+	text-align: center;
+  }
+  
+  .n0 { transform: translate(  60%,  -120%);}
+  .n1 { transform: translate( 160%,  -110%);}
+  .nx { transform: translate(-150%,    90%);}
+  .n2 { transform: translate(-110%,    110%);}
+  .n3 { transform: translate( -60%,    90%);}
+
+  .vball {
+    width: 24px;
+    height: 24px;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    position: relative;
+    text-align: center;
+    line-height: 24px; /* to vertically center text; set to height*/
+  }
+  .vball {
+    left: 12px;
+    top: -42px;
+  }
+  .vball {
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+  }
+    
 </style>
 `;
 
@@ -113,17 +148,18 @@ class VKey extends HTMLElement {
     let _a = this.getAttribute('a').split(" ");
     let _c = this.getAttribute('c').split(" ");
     this.shadowRoot.querySelector(".caption.n0").innerText = _a[0];
-    this.shadowRoot.querySelector(".caption.nt").innerText = _a[0];
-	this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
+    this.shadowRoot.querySelector(".caption.n1").innerText = _a[1];
+    this.shadowRoot.querySelector(".caption.nx").innerText = _a[2];
     this.shadowRoot.querySelector(".caption.n2").innerText = _a[2];
-    this.shadowRoot.querySelector(".caption.nb").innerText = _a[2];
-	this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
-  	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
-	this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
+    this.shadowRoot.querySelector(".caption.n3").innerText = _a[3];
+    this.shadowRoot.querySelector(".caption.vball").innerText = _a[0];
+	this.shadowRoot.querySelector(".vkey").style.background = _c[0];
+    this.shadowRoot.querySelector(".vkey").style.backgroundImage = "radial-gradient(circle, " + _c[0] + " 30%, " + _c[1] + ")";
     let _s = this.getAttribute('s');
     this.shadowRoot.querySelector(".caption.n0").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n1").style.fontWeight = _s;
-  	this.shadowRoot.querySelector(".caption.n2").style.fontWeight = _s;
+    this.shadowRoot.querySelector(".caption.nx").style.fontWeight = _s;
+	this.shadowRoot.querySelector(".caption.n2").style.fontWeight = _s;
     this.shadowRoot.querySelector(".caption.n3").style.fontWeight = _s;
   }
 
@@ -141,7 +177,10 @@ class VKey extends HTMLElement {
     .filter(function() {  return this.nodeType == Node.TEXT_NODE;})
     .text()
   );*/
-  return _text;
+   // update vball
+   //let _vball = e.target.parentNode.parentNode.children[1];
+   //_vball.innerText = _text;
+   return _text;
  }
 
  put2_textarea(v) {
@@ -278,8 +317,8 @@ class VKey extends HTMLElement {
     
     // vkey event handling
     // -------------------
-    ['.caption'].forEach(function(item) {
-      let _div =  item;
+    ['vball', 'n0', 'n1', 'nx', 'n2', 'n3'].forEach(function(item) {
+      let _div = ".caption." + item;
       /*
       // click listener
       _this.shadowRoot.querySelector(_div).addEventListener('click',
@@ -289,7 +328,21 @@ class VKey extends HTMLElement {
           document.all.vsel.innerText = e.target.innerText;
         });
       */
-      
+      // swipe listener - causing keyboard display corruption. comment out.
+		/*
+      _this.shadowRoot.querySelector(_div).addEventListener('pointerdown',
+        function(e) {
+          e.preventDefault(); e.stopPropagation();
+          _this.set_vsel_innerText(e);
+          
+         if (e.which==lastKey) {
+			      if (!timer) timer=setTimeout(console.log("hello"), 200);
+			      return;
+		     }
+		     lastKey=e.which;
+          
+        });
+      */
       _this.shadowRoot.querySelector(_div).addEventListener('pointerenter',
         function(e) {
           e.preventDefault(); e.stopPropagation();
@@ -308,23 +361,34 @@ class VKey extends HTMLElement {
 		  //_this.put2_textarea(_this.set_vsel_innerText(e));
 			_this.put2_textarea(document.all.vsel.innerText);
 
+        });
+	  /*		
+      _this.shadowRoot.querySelector(_div).addEventListener('pointercancel',
+        function(e) {
+          e.preventDefault(); e.stopPropagation();
+		  // pointerend corresponds to touch remove
+		  //_this.put2_textarea(_this.set_vsel_innerText(e));	
       });
-	  	
+	  */	
       _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
         function(e) {
           e.preventDefault(); e.stopPropagation();
           var touch = e.touches[0];
           var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-          console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText);
+          const parentElement_children =  realTarget.shadowRoot.querySelector(_div).parentElement.children;
+		  console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText, realTarget.getBoundingClientRect(), parentElement_children);
+	      
           document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
       });
+	 
 		
 
     })  // end forEach
-  } // end connectedCallback
+ // vball event handlers
+  }
 
   disconnectedCallback() {
-	  this.shadowRoot.querySelector(_div).removeEventListener();
+    this.shadowRoot.querySelector('.caption').removeEventListener();
   }
 
 // end class Vkey	
