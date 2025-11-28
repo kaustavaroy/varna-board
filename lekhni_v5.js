@@ -375,7 +375,7 @@ class VKey extends HTMLElement {
           e.preventDefault(); e.stopPropagation();
   		  // Get the bounding rectangle's position and size
 		  const parent_element = _this.shadowRoot.querySelector(_div).parentElement;	
-          const rect = element.getBoundingClientRect(parent_element);
+          const rect = parent_element.getBoundingClientRect();
           var touch = e.touches[0];
 		  var touchX0 = touch.clientX;
 		  var touchY0 = touch.clientY;
