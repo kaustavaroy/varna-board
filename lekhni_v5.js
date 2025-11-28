@@ -319,7 +319,7 @@ class VKey extends HTMLElement {
     // -------------------
     ['vball', 'n0', 'n1', 'nx', 'n2', 'n3'].forEach(function(item) {
       let _div = ".caption." + item;
-      /*
+	  /*
       // click listener
       _this.shadowRoot.querySelector(_div).addEventListener('click',
         function(e) {
@@ -370,28 +370,29 @@ class VKey extends HTMLElement {
 		  //_this.put2_textarea(_this.set_vsel_innerText(e));	
       });
 	  */	
-      _this.shadowRoot.querySelector(_div).addEventListener('touchmove',
+      _this.shadowRoot.querySelector(_div).parentElement.addEventListener('touchmove',
         function(e) {
           e.preventDefault(); e.stopPropagation();
+  		  // Get the bounding rectangle's position and size
+		  const parent_element = _this.shadowRoot.querySelector(_div).parentElement;	
+          const rect = element.getBoundingClientRect(parent_element);
           var touch = e.touches[0];
-		  var x0 = touch.clientX;
-		  var y0 = touch.clientY;
-          var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-          const parentElement_children =  realTarget.shadowRoot.querySelector(_div).parentElement.children;
-		  console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText, x0, y0, realTarget);
+		  var touchX0 = touch.clientX;
+		  var touchY0 = touch.clientY;
+          var realTarget = document.elementFromPoint(touchX0, touchY0);
+          console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText, parent_element);
+		  // Calculate position relative to the element
+          const relativeX = touchX - rect.left;
+          const relativeY = touchY - rect.top;
+          // Check if the touch is within the bounds
+          if (relativeX >= 0 && relativeX <= rect.width && relativeY >= 0 && relativeY <= rect.height) {
+             console.log(`Touch is inside the element at relative coordinates: (${relativeX}, ${relativeY})`);
+          } else {
+             console.log(`Touch is outside the element.`);
+          }	
           document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
       });
-		 _this.shadowRoot.querySelector(_div).addEventListener('touchstart',
-        function(e) {
-          e.preventDefault(); e.stopPropagation();
-          var touch = e.touches[0];
-		  var x0 = touch.clientX;
-		  var y0 = touch.clientY;
-          var realTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-		  console.log("TgtStart", realTarget.shadowRoot.querySelector(_div).innerText, x0, y0, realTarget, e.touches);
-          document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
-      });
-	 
+	
 		
 
     })  // end forEach
