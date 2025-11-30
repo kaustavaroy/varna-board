@@ -388,8 +388,9 @@ class VKey extends HTMLElement {
           // Check if the touch is within the bounds
           if (relativeX >= 0 && relativeX <= rect.width && relativeY >= 0 && relativeY <= rect.height) {
              console.log(`Touch is inside the element of height ${rect.height} at relative coordinates: (${relativeX}, ${relativeY})`);
+			 console.log("Touch is in parent_element / third_child / text", parent_element, third_child, third_child.innerText);
           } else {
-             console.log("Touch is outside the element", parent_element, third_child, third_child.innetText);
+             console.log("Touch is outside the element");
           }	
           document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
       });
