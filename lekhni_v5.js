@@ -392,7 +392,11 @@ class VKey extends HTMLElement {
           } else {
              console.log("Touch is outside the element");
           }	
-          document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
+		  if ( relativeY <= rect.height*0.5) {
+          	document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
+		  } else {
+			document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).parentElement.querySelector(':nth-child(4)').innerText;
+		  }
       });
 	
 		
