@@ -375,6 +375,7 @@ class VKey extends HTMLElement {
           e.preventDefault(); e.stopPropagation();
   		  // Get the bounding rectangle's position and size
 		  const parent_element = _this.shadowRoot.querySelector(_div).parentElement;	
+		  const third_child = parent_element.querySelector(':nth-child(3)');
           const rect = parent_element.getBoundingClientRect();
           var touch = e.touches[0];
 		  var touchX0 = touch.clientX;
@@ -388,7 +389,7 @@ class VKey extends HTMLElement {
           if (relativeX >= 0 && relativeX <= rect.width && relativeY >= 0 && relativeY <= rect.height) {
              console.log(`Touch is inside the element of height ${rect.height} at relative coordinates: (${relativeX}, ${relativeY})`);
           } else {
-             console.log(`Touch is outside the element.${parent_element}`);
+             console.log("Touch is outside the element", parent_element, third_child, third_child.innetText);
           }	
           document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
       });
