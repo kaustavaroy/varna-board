@@ -372,30 +372,33 @@ class VKey extends HTMLElement {
 	  */	
       _this.shadowRoot.querySelector(_div).parentElement.addEventListener('touchmove',
         function(e) {
-          e.preventDefault(); e.stopPropagation();
-  		  // Get the bounding rectangle's position and size
-		  const parent_element = _this.shadowRoot.querySelector(_div).parentElement;	
-		  const third_child = parent_element.querySelector(':nth-child(3)');
-          const rect = parent_element.getBoundingClientRect();
-          var touch = e.touches[0];
-		  var touchX0 = touch.clientX;
-		  var touchY0 = touch.clientY;
-          var realTarget = document.elementFromPoint(touchX0, touchY0);
-          console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText, parent_element);
-		  // Calculate position relative to the element
-          const relativeX = touchX0 - rect.left;
-          const relativeY = touchY0 - rect.top;
-          // Check if the touch is within the bounds
-          if (relativeX >= 0 && relativeX <= rect.width && relativeY >= 0 && relativeY <= rect.height) {
-             console.log(`Touch is inside the element of height ${rect.height} at relative coordinates: (${relativeX}, ${relativeY})`);
-			 console.log("Touch is in parent_element / third_child / text", parent_element, third_child, third_child.innerText);
-          } else {
-             console.log("Touch is outside the element");
-          }	
-		  if ( relativeY <= rect.height*0.5) {
-          	document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
-		  } else {
-			document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).parentElement.querySelector(':nth-child(4)').innerText;
+		  // only activate for vball
+		  if ( _div == ".caption.vball") { 	
+	          e.preventDefault(); e.stopPropagation();
+	  		  // Get the bounding rectangle's position and size
+			  const parent_element = _this.shadowRoot.querySelector(_div).parentElement;	
+			  const third_child = parent_element.querySelector(':nth-child(3)');
+	          const rect = parent_element.getBoundingClientRect();
+	          var touch = e.touches[0];
+			  var touchX0 = touch.clientX;
+			  var touchY0 = touch.clientY;
+	          var realTarget = document.elementFromPoint(touchX0, touchY0);
+	          console.log("Tgt", realTarget.shadowRoot.querySelector(_div).innerText, parent_element);
+			  // Calculate position relative to the element
+	          const relativeX = touchX0 - rect.left;
+	          const relativeY = touchY0 - rect.top;
+	          // Check if the touch is within the bounds
+	          if (relativeX >= 0 && relativeX <= rect.width && relativeY >= 0 && relativeY <= rect.height) {
+	             console.log(`Touch is inside the element of height ${rect.height} and width ${rect.width} at relative coordinates: (${relativeX}, ${relativeY})`);
+				 console.log("Touch is in parent_element / third_child / text", parent_element, third_child, third_child.innerText);
+	          } else {
+	             console.log("Touch is outside the element");
+	          }	
+			  if ( relativeY <= rect.height*0.5) {
+	          	document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
+			  } else {
+				document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).parentElement.querySelector(':nth-child(4)').innerText;
+			  }
 		  }
       });
 	
