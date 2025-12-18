@@ -44,6 +44,8 @@ $vkey.innerHTML = `
 <style>
   .vwrap {
     positionk: relative;
+	height: 48px;
+    width: 48px;
   }
 
   .vkey {
