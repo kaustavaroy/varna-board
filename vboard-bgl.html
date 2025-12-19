@@ -1,0 +1,171 @@
+
+<!doctype html5>
+
+<!--
+Copyright (c) 2021 Kaustava Roy, Payal Roy & Sons. All Rights Reserved.
+Permission to use, copy, modify, and distribute this software and its documentation
+for educational, research, and not-for-profit purposes, without fee and without
+a signed licencsing agreement is hereby granted provided the above copyright
+notice, this paragraph, and following two paragraphs appear in all copies, modifications
+and distributions. Contact kaustava.roy@gmail.com for commercial licencsing opportunities.
+
+In no event shall the copyright holders be liable to any party for direct, indirect,
+special, incidental, or consequential damages, including lost profits, arising out
+of the use of this software and its documentation, even if the copyright owners have
+been advised of the possibility of such damages.
+
+The copyright holders specifically disclaims any warranties, including but not limited to,
+the implied warranties of merchantability and fitness for a particular purpose. The software
+and accompanying documentation, if any, provided hereunder is provided "as is". The copyright
+holders have no obligation to provide maintenance, support, updates, enhancements, or
+modifications.
+-->
+
+
+
+
+<head>
+  <meta charset="utf-8" name="viewport"  content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+  <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+	<title>Sanskrit Keyboard</title>
+	<style>
+  body {
+    touch-action: none;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+	.keyboard-grid {
+		display: grid;
+        width: 466px;
+		grid-template-columns: repeat(7, 48px);
+		grid-template-rows: repeat(5, 36px);
+		grid-gap: 3px;
+		background-color: rgba(0, 0, 0, 0.9);
+    	padding: 12px 36px;
+    	padding-left: 24px;
+		margin-left: 0px;
+	}
+	.keyboard-input {
+		width: 526px;
+    	color: var(--blue);
+    	font-size: 24px;
+    	font-weight: 800;
+	}
+  .view_row{
+    display: flex;
+    color: white;
+    font-size: 24px;
+    font-weight: 800;
+    justify-content: space-between;
+    height: 36px;
+    width: 290px;
+    padding: 5px 40px;
+    padding-right: 196px;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .vsel {
+    border: white 1px solid;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 36px;
+  }
+  #vput {
+    text-align: center;
+    line-height: 36px;
+  }
+  #valt {
+    text-align: center;
+    line-height: 36px;
+	color: white;
+  }
+  :root {
+    --grey: rgba(77,77,77,0.9);
+    --black: rgba(0,0,0,0.7);
+    --blue: rgba(15,60,240,0.9);
+	--orange: rgba(250,160,0,0.9);  
+    --red:  rgba( 150,25,15,0.9);
+    --teal: rgba(0,185,255,0.9);
+	--green: rgba(0,185,105,0.9)   
+  }
+
+  /* Solid border */
+  hr.solid {
+    border-top: 3px solid #bbb;
+  }
+	</style>
+</head>
+<body>
+	<h1>VBoard - Varna Keyboard w/ html, css & js</h1>
+  <h3>Varna based keyboard for All languages</h3>
+  <p><b>Unique Features</b></p>
+  <ol>
+			<li><b>V</b>irtual</li>
+			<li><b>A</b>ccurate</li>
+			<li><b>R</b>esponsive</li>
+      <li><b>N</b>atural</li>
+      <li><b>A</b>esthetic</li>
+	</ol>
+	<textarea class="keyboard-input" name="keyinput" onfocus="blur();"></textarea>
+  <!-- vsel and vput store last selected and last added varna -->
+  <div id="vrow" class="view_row">
+    <div id="vsel" class="vsel"></div>
+    <div id="vput"></div>
+    <div id="valt"></div>
+  </div>
+  <div class="keyboard-grid">  
+	  <!--         1/j	9/g	y/w	t/d	h/l	p/b	f/v
+                 z/x	s/8	r/e	a/o	u/i	m	n/4
+    --> 
+	  <v-key a="0 q 1 q " c="var(--grey) var(--black)" s="300" style="margin-left: -24px;"></v-key>  
+    <v-key a="2 c 3 c" c="var(--grey) var(--black)" s="300" style="margin-left: -24px;"></v-key>
+    <v-key a="4 ә 5 ә" c="var(--grey) var(--black)" s="300" style="margin-left: -24px;"></v-key>
+	  <v-key a="ә é ó ә" c="var(--grey) var(--black)" s="300" style="margin-left: -24px;"></v-key>
+    <v-key a="6 ә 7 ә" c="var(--grey) var(--black)" s="300" style="margin-left: -24px;"></v-key>
+	  <v-key a="8 ә 9 ә" c="var(--grey) var(--black)" s="300" style="margin-left: -24px;"></v-key>
+    <v-key a="+ * - =" c="var(--grey) var(--black)"  s="300" style="margin-left: -24px;"></v-key>
+
+    <v-key a="ch chh j jh" c="var(--grey) var(--black)" ></v-key>
+    <v-key a="ƙ kh g gh" c="var(--grey) var(--black)" ></v-key>
+  	<v-key a="y h w l" c="var(--grey) var(--black)" ></v-key>  
+    <v-key a="t ṭ d ḍ" c="var(--grey) var(--black)" ></v-key>
+    <v-key a="h h l l" c="var(--grey) var(--black)" ></v-key> 
+    <v-key a="p ph b bh" c="var(--grey) var(--black)" ></v-key>
+    <v-key a="the &#x093C; and &#x093C;" c="var(--grey) var(--black)" ></v-key>  
+	  
+    <v-key a="z z x x" c="var(--grey) var(--black)"  s="300" style="margin-left: -24px;"></v-key>
+	  <v-key a="ç s ti śh" c="var(--grey) var(--black)" s="300" style="margin-left: -24px;"></v-key>
+    <v-key a="r i e é" c="var(--teal) black" s="300" style="margin-left: -24px;"></v-key>
+    <v-key a="a ā o ō" c="var(--teal) black" s="300" style="margin-left: -24px;"></v-key>
+    <v-key a="u oo i ē"  c="var(--teal) black" s="300" style="margin-left: -24px;"></v-key>
+    <v-key a="m om n on"  c="var(--teal) black" s="300" style="margin-left: -24px;"></v-key>
+    <v-key a="f of v ov" c="var(--grey) var(--black)"  s="300" style="margin-left: -24px;"></v-key>
+
+     
+    <v-key a="&#10034; ↓ &#128269; &#x094D;" c="var(--grey) var(--black)" ></v-key>  
+	<v-key a="␣ ✹ ? # " c="var(--grey) var(--black)" ></v-key>
+	<v-key a="␣ ✹ , # " c="var(--grey) var(--black)" ></v-key>
+	<v-key a="␣ ✹ . # " c="var(--grey) var(--black)" ></v-key>
+	<v-key a="␣ ✹ ; # " c="var(--grey) var(--black)" ></v-key>
+	<v-key a="-- ✹ / # " c="var(--grey) var(--black)" ></v-key>
+	<v-key a="⌫ ← --  &#128270; " c="var(--grey) var(--black)" ></v-key>
+       
+	  
+    <!-- https://www.unicodepedia.com/groups/devanagari/ -->
+	<!-- https://www.anirdesh.com/gujarati/hindi-unicode.php -->  
+    <!-- https://en.wikipedia.org/wiki/Devanagari_%28Unicode_block%29 -->
+    <!-- http://blog.elliottcable.name/posts/useful_unicode.xhtml -->
+    <!-- we can use unicode equivalent &#2325; for क. These are radix 10 numbers-->
+    <!-- "क".codePointAt(0)  =  2325-->
+    <!-- document.getElementsByTagName("v-key")[0].shadowRoot.querySelectorAll(".caption")[0].innerText
+        "ह"  -->
+  </div>
+
+  <hr class=solid></hr>
+  <p>Copyright &#169; 2025 Kaustava Roy, Payal Roy & Sons. All Rights Reserved.</p>
+	<script src="lekhni_v5.js"></script>
+
+</body>
+</body>
