@@ -238,19 +238,31 @@ class VKey extends HTMLElement {
 			 // const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
              // const arr_vyanjana = [...vyanjana];
 		     // https://www.unicode.org/charts/nameslist/n_0900.html
-		     case "आ": _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break; 
-			 case "इ": _V += String.fromCharCode(parseInt("93f", 16)); _vput+= _V.slice(-1,); break;
-			 case "ई": _V += String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
-		     case "उ": _V += String.fromCharCode(parseInt("941", 16));  _vput+= _V.slice(-1,); break;
-			 case "ऊ": _V += String.fromCharCode(parseInt("942", 16));  _vput+= _V.slice(-1,); break;
-		     case "ऋ": _V += String.fromCharCode(parseInt("943", 16));  _vput+= _V.slice(-1,); break;
-		     case "ऌ": _V += String.fromCharCode(parseInt("962", 16));  _vput+= _V.slice(-1,); break;  
-		     case "ए": _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
-			 case "ऐ": _V += String.fromCharCode(parseInt("948", 16));  _vput+= _V.slice(-1,); break;
-			 case "ऎ": _V += String.fromCharCode(parseInt("946", 16));  _vput+= _V.slice(-1,); break;
+		     case "आ": case "আ": 
+				   _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break; 
+			 case "इ": case: "ই":
+				   _V += String.fromCharCode(parseInt("93f", 16)); _vput+= _V.slice(-1,); break;
+			 case "ई": case "ঈ":
+				   _V += String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
+		     case "उ": case "উ":
+				   _V += String.fromCharCode(parseInt("941", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऊ": case "ঊ": 
+				   _V += String.fromCharCode(parseInt("942", 16));  _vput+= _V.slice(-1,); break;
+		     case "ऋ": case "ঋ": 
+				   _V += String.fromCharCode(parseInt("943", 16));  _vput+= _V.slice(-1,); break;
+		     case "ऌ": case "ঌ": 
+				   _V += String.fromCharCode(parseInt("962", 16));  _vput+= _V.slice(-1,); break;  
+		     case "ए": case "এ":
+				   _V += String.fromCharCode(parseInt("947", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऐ": case "ঐ":
+				   _V += String.fromCharCode(parseInt("948", 16));  _vput+= _V.slice(-1,); break;
+			 case "ऎ": 
+				   _V += String.fromCharCode(parseInt("946", 16));  _vput+= _V.slice(-1,); break;
 		     case "ऑ": _V += String.fromCharCode(parseInt("949", 16));  _vput+= _V.slice(-1,); break;
-		     case "ओ": _V += String.fromCharCode(parseInt("94b", 16));  _vput+= _V.slice(-1,); break;
-     	     case "औ": _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
+		     case "ओ": case "ও":
+				   _V += String.fromCharCode(parseInt("94b", 16));  _vput+= _V.slice(-1,); break;
+     	     case "औ": case "ঔ":
+				   _V += String.fromCharCode(parseInt("94c", 16));  _vput+= _V.slice(-1,); break;
 	   }
    } else if  ( arr_vowels.includes(v) && arr_vowels.includes(_V_lastchar) ) {
 	   // handling elongated english vowels and diphthongs
