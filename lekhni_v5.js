@@ -266,7 +266,7 @@ class VKey extends HTMLElement {
      	     case "ঔ":  _V += String.fromCharCode(parseInt("9cc", 16));  _vput+= _V.slice(-1,); break;
         	   default : _V += v; _vput+=v; break;
 	   }
-   } else if  ( arr_vowels.includes(v) && arr_vowels.includes(_V_lastchar) ) {
+   } else if  ( (arr_vowels.includes(v) && arr_vowels.includes(_V_lastchar)) || (arr_swara.includes(v) && arr_swara.includes(_V_lastchar)) ) {
 	   // handling elongated english vowels and diphthongs
 	    let vv = v + _V_lastchar;
 	    switch (vv) {
