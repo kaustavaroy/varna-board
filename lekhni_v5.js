@@ -117,7 +117,7 @@ const halanth = String.fromCharCode(parseInt("094d", 16));
 const nukta = String.fromCharCode(parseInt("093c", 16));
 
 // swara (vowels)
-const swara = "अआइईउऊऋॠऌएऐऎऑओऔ";
+const swara = "अआइईउऊऋॠऌएऐऎऑओऔঅআইঈউঊঋঌএঐওঔ";
 const arr_swara = [...swara];
 
 let swara_matra = "";
@@ -127,7 +127,7 @@ for ( let i = 0x93d; i < 0x94d; i++) {
 }
 const arr_swara_matra = [...swara_matra];
 
-const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
+const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञকখগঘচছজঝটঠডঢণতথদধনপফবভমহযরলশষসক্ষজ্ঞ";
 const arr_vyanjana = [...vyanjana];
 
 const vyanajana_alpaprana = "कगचजटडतदपब";
