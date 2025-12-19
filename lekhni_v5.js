@@ -240,7 +240,7 @@ class VKey extends HTMLElement {
 		     // https://www.unicode.org/charts/nameslist/n_0900.html
 		     case "आ": case "আ": 
 				   _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break; 
-			 case "इ": case: "ই":
+			 case "इ": case "ই":
 				   _V += String.fromCharCode(parseInt("93f", 16)); _vput+= _V.slice(-1,); break;
 			 case "ई": case "ঈ":
 				   _V += String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
