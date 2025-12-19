@@ -278,13 +278,19 @@ class VKey extends HTMLElement {
 			case "oo": 
 			case "uu":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "û"; _vput+= _V.slice(-1,); break;
 			case "iu":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ū"; _vput+= _V.slice(-2,); break;
-				// hindi
-				//bangla
+			// hindi - अआइईउऊऋॠऌएऐऎऑओ
+			case "अअ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("93e", 16)); _vput+= _V.slice(-1,); break;
+			case "इइ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
+			case "उउ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("942", 16)); _vput+= _V.slice(-1,); break;
+			case "एए": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("948", 16)); _vput+= _V.slice(-1,); break;
+			case "ओओ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("94c", 16)); _vput+= _V.slice(-1,); break;
+			//bangla
 			case "অঅ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("9be", 16)); _vput+= _V.slice(-1,); break;
 			case "ইই": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("9c0", 16)); _vput+= _V.slice(-1,); break;
 			case "উউ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("9c2", 16)); _vput+= _V.slice(-1,); break;
 			case "এএ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("9c8", 16)); _vput+= _V.slice(-1,); break;
 			case "ওও": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("9cc", 16)); _vput+= _V.slice(-1,); break;
+			// defaulta
 			default : _V += v; _vput+=v; break;
 		}
    } else {	 
