@@ -239,7 +239,7 @@ class VKey extends HTMLElement {
 			 // const vyanjana = "कखगघचछजझटठडढतथदधपफबभमनणङञयरलवशषसहक्षत्रज्ञ";
              // const arr_vyanjana = [...vyanjana];
 		     // https://www.unicode.org/charts/nameslist/n_0900.html
-		     case "आ":  _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break; 
+			 case "आ":  _V += String.fromCharCode(parseInt("93e", 16));  _vput+= _V.slice(-1,); break; 
 			 case "इ":  _V += String.fromCharCode(parseInt("93f", 16)); _vput+= _V.slice(-1,); break;
 			 case "ई":  _V += String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
 		     case "उ":  _V += String.fromCharCode(parseInt("941", 16));  _vput+= _V.slice(-1,); break;
@@ -325,8 +325,10 @@ class VKey extends HTMLElement {
 					    _V += v; _vput+=v; break;
 				   }
 				case "अ": 
-				   if ( arr_swara_matra.includes(_V_lastchar) ) {
+				   if ( arr_swara_matra.includes(_V_lastchar)) {
 					   _V += String.fromCharCode(parseInt("93d", 16));  _vput+= _V.slice(-1,); break;
+				   } else if (!arr_vyanjana.includes(_V_lastchar) ) {
+					   _V += v; _vput+=v; break;
 				   }
 		       // case "+": _V += "&#93e;"; break;
 		       // case "+": _V += String.fromCharCode(2366); break;
