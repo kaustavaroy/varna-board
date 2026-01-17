@@ -266,7 +266,7 @@ class VKey extends HTMLElement {
      	     case "ঔ":  _V += String.fromCharCode(parseInt("9cc", 16));  _vput+= _V.slice(-1,); break;
         	   default : _V += v; _vput+=v; break;
 	   }
-   } else if  ( (arr_vowels.includes(v) && arr_vowels.includes(_V_lastchar)) || (arr_swara.includes(v) && arr_swara.includes(_V_lastchar)) ) {
+   } else if  ( (arr_vowels.includes(v) && arr_vowels.includes(_V_lastchar)) || (arr_swara.includes(v) &&  ( arr_swara.includes(_V_lastchar) ||  arr_swara_matra.includes(_V_lastchar) )  ) ) {
 	   // handling elongated english vowels and diphthongs
 	    let vv = v + _V_lastchar;
 	   console.log("last:",_V_lastchar);
@@ -279,11 +279,16 @@ class VKey extends HTMLElement {
 			case "oo": 
 			case "uu":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "û"; _vput+= _V.slice(-1,); break;
 			case "iu":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ū"; _vput+= _V.slice(-2,); break;
-			// hindi - अआइईउऊऋॠऌएऐऎऑओ
+			// hindi - अआइईउऊऋॠऌएऐऎऑओ 
+			// ऽ ा ि ी ु ू ृ ॄ ॅ ॆ े ै ॉ ॊ ो ौ
 			case "अअ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("93e", 16)); _vput+= _V.slice(-1,); break;
-			case "इइ":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
+			case "इइ":
+			case "िइ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
+			case " ुउ":
 			case "उउ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("942", 16)); _vput+= _V.slice(-1,); break;
+			case " ेए":
 			case "एए": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("948", 16)); _vput+= _V.slice(-1,); break;
+			case "ोओ"
 			case "ओओ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("94c", 16)); _vput+= _V.slice(-1,); break;
 			//bangla
 			case "অঅ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("9be", 16)); _vput+= _V.slice(-1,); break;
