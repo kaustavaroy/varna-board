@@ -269,6 +269,7 @@ class VKey extends HTMLElement {
    } else if  ( (arr_vowels.includes(v) && arr_vowels.includes(_V_lastchar)) || (arr_swara.includes(v) && arr_swara.includes(_V_lastchar)) ) {
 	   // handling elongated english vowels and diphthongs
 	    let vv = v + _V_lastchar;
+	   console.log("last:",_V_lastchar);
 	    switch (vv) {
 		     // const vowels = "aeiou"
 			case "aa":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ā"; _vput+= _V.slice(-1,); break;
@@ -280,8 +281,7 @@ class VKey extends HTMLElement {
 			case "iu":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + "ū"; _vput+= _V.slice(-2,); break;
 			// hindi - अआइईउऊऋॠऌएऐऎऑओ
 			case "अअ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("93e", 16)); _vput+= _V.slice(-1,); break;
-			case "इइ": case "िइ":
-				_V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
+			case "इइ":  _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("940", 16)); _vput+= _V.slice(-1,); break;
 			case "उउ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("942", 16)); _vput+= _V.slice(-1,); break;
 			case "एए": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("948", 16)); _vput+= _V.slice(-1,); break;
 			case "ओओ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("94c", 16)); _vput+= _V.slice(-1,); break;
