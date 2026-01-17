@@ -288,7 +288,7 @@ class VKey extends HTMLElement {
 			case "उउ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("942", 16)); _vput+= _V.slice(-1,); break;
 			case " ेए":
 			case "एए": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("948", 16)); _vput+= _V.slice(-1,); break;
-			case "ोओ"
+			case "ोओ":
 			case "ओओ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("94c", 16)); _vput+= _V.slice(-1,); break;
 			//bangla
 			case "অঅ": _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,) + String.fromCharCode(parseInt("9be", 16)); _vput+= _V.slice(-1,); break;
