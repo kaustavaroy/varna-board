@@ -203,7 +203,7 @@ class VKey extends HTMLElement {
 	 
    // remove previous halanth if swara (vowel) being added
    if (arr_swara.includes(v)) {
-	   console.log("keyinput:",_V_last_char, _V);	 
+	   console.log("keyinput:",_V_lastchar, _V);	 
 	   if (_V_lastchar == "्") {
 		   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
 	       _vput = _vput.slice(0,-1);
