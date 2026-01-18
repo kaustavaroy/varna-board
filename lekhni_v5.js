@@ -230,7 +230,8 @@ class VKey extends HTMLElement {
 	  }
 	  //_V = _V.slice(,-2) + _V_penulchar + _V_lastchar;   _vput+= _V.slice(-1,); 
    }
-		 
+
+   console.log("keyinput:",_V_last_char, _V);	 
    // use matras if last char is vyanjana and new char is swara
    if ( arr_swara.includes(v) && arr_vyanjana.includes(_V_lastchar) ) {
 		   switch (v) {
@@ -437,16 +438,20 @@ class VKey extends HTMLElement {
 	          const relativeX = touchX0 - rect.left;
 	          const relativeY = touchY0 - rect.top;
 			  // Check if the touch is within the bounds
-	          if (relativeX >= 0 && relativeX <= rect.width && relativeY >= 0 && relativeY <= rect.height) {
+	          /*if (relativeX >= 0 && relativeX <= rect.width && relativeY >= 0 && relativeY <= rect.height) {
 	             console.log(`Touch is inside the element of height ${rect.height} and width ${rect.width} at relative coordinates: (${relativeX}, ${relativeY})`);
 				 console.log("Touch is in parent_element / third_child / text", parent_element, third_child, third_child.innerText);
 	          } else {
 	             console.log("Touch is outside the element");
-	          }	
-			  if ( relativeY <= rect.height*0.5 ) {
+	          }*/
+			  if ( relativeY <= rect.height*0.5 && relativeX <= rect.width*0.5 ) {
 	          	document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).innerText;
-			  } else {
-				document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).parentElement.querySelector(':nth-child(4)').innerText;
+			  } else if ( relativeY <= rect.height*0.5 && relativeX >= rect.width*0.5 ) {
+				  document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).parentElement.querySelector(':nth-child(2)').innerText;
+			  } else if ( relativeY >= rect.height*0.5 && relativeX <= rect.width*0.5 ) {
+				  document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).parentElement.querySelector(':nth-child(4)').innerText;
+			  } else if ( relativeY >= rect.height*0.5 && relativeX >= rect.width*0.5 ) {
+				  document.all.vsel.innerText = realTarget.shadowRoot.querySelector(_div).parentElement.querySelector(':nth-child(5)').innerText;
 			  }
 		  }
       });
