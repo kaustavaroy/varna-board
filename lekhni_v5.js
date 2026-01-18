@@ -266,8 +266,10 @@ class VKey extends HTMLElement {
 			 case "ঐ":  _V += String.fromCharCode(parseInt("9c8", 16));  _vput+= _V.slice(-1,); break;
 			 case "ও":  _V += String.fromCharCode(parseInt("9cb", 16));  _vput+= _V.slice(-1,); break;
      	     case "ঔ":  _V += String.fromCharCode(parseInt("9cc", 16));  _vput+= _V.slice(-1,); break;
-        	   default : _V += v; _vput+=v; break;
+			// default	   
+        	default : _V += v; _vput+=v; break;
 	   }
+	   _V_lastchar = _V.slice(-1,);
    } else if  ( (arr_vowels.includes(v) && arr_vowels.includes(_V_lastchar)) || (arr_swara.includes(v) &&  ( arr_swara.includes(_V_lastchar) ||  arr_swara_matra.includes(_V_lastchar) )  ) ) {
 	   // handling elongated english vowels and diphthongs
 	    let vv = v + _V_lastchar;
@@ -301,6 +303,7 @@ class VKey extends HTMLElement {
 			// defaulta
 			default : _V += v; _vput+=v; break;
 		}
+	   _V_lastchar = _V.slice(-1,);
    } else {	 
 		   switch (v) {	   
 		       case "␣": _V += " "; _vput = ""; break;
