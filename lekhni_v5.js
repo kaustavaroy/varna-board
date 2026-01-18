@@ -203,6 +203,7 @@ class VKey extends HTMLElement {
 	 
    // remove previous halanth if swara (vowel) being added
    if (arr_swara.includes(v)) {
+	   console.log("keyinput:",_V_last_char, _V);	 
 	   if (_V_lastchar == "्") {
 		   _V = _V.substring(0,_start_pos) + _V.substring(_end_pos,);
 	       _vput = _vput.slice(0,-1);
@@ -231,7 +232,7 @@ class VKey extends HTMLElement {
 	  //_V = _V.slice(,-2) + _V_penulchar + _V_lastchar;   _vput+= _V.slice(-1,); 
    }
 
-   console.log("keyinput:",_V_last_char, _V);	 
+   
    // use matras if last char is vyanjana and new char is swara
    if ( arr_swara.includes(v) && arr_vyanjana.includes(_V_lastchar) ) {
 		   switch (v) {
